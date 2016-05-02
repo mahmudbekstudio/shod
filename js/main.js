@@ -32,7 +32,17 @@ $(document).ready(function(){
 
 	var swiper = new Swiper('.swiper-container', {
 		pagination: '.swiper-pagination',
-		paginationClickable: true
+		paginationClickable: true,
+		slidesPerView: 'auto',
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		loop: true,
+		spaceBetween: 30,
+		centeredSlides: true,
+		autoplay: 3000,
+		autoplayDisableOnInteraction: false,
+		preloadImages: false,
+		lazyLoading: true
 	});
 
 });
