@@ -38,7 +38,7 @@ $(document).ready(function(){
 		prevButton: '.swiper-button-prev',
 		loop: true,
 		spaceBetween: 30,
-		//autoplay: 3000,
+		autoplay: 3000,
 		autoplayDisableOnInteraction: false
 	});
 
