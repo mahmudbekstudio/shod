@@ -38,11 +38,8 @@ $(document).ready(function(){
 		prevButton: '.swiper-button-prev',
 		loop: true,
 		spaceBetween: 30,
-		centeredSlides: true,
 		autoplay: 3000,
-		autoplayDisableOnInteraction: false,
-		preloadImages: false,
-		lazyLoading: true
+		autoplayDisableOnInteraction: false
 	});
 
 });
