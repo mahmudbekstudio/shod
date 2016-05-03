@@ -2633,10 +2633,29 @@ h2.title {
 	/*min-width: auto; !important;*/
 }
 
-.swiper-container {
+.index-page .swiper-container {
   width: 100%;
   min-height: 400px;
 }
+
 .swiper-slide {
   background: #fff;
+}
+
+.product-page .swiper-container.product-detail a {
+  margin: 0 11px;
+}
+
+.product-page .swiper-container.product-detail {
+  height: 110px;
+}
+
+.product-page .swiper-container.product-detail .swiper-button-next {
+  width: 10px;
+  background-position: right;
+}
+
+.product-page .swiper-container.product-detail .swiper-button-prev {
+  width: 10px;
+  background-position: left;
 }
