@@ -38,7 +38,7 @@
 	<link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_directory' ); ?>/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <?php
-$bodyClass = [];
+$bodyClass = array();
 if(is_front_page() || is_home()) {
 	$bodyClass[] = 'index-page';
 }
@@ -52,19 +52,21 @@ if(is_front_page() || is_home()) {
 				<div class="col-sm-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="#"><i class="fa fa-phone"></i> +99897 7070384</a></li>
-							<li><a href="#"><i class="fa fa-envelope"></i> info@shodiyona.uz</a></li>
+							<li><a href="#"><i class="fa fa-phone"></i> <?php the_field('phone', 'option') ?></a></li>
+							<li><a href="mailto: <?php $email = get_field('e-mail', 'option'); echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<?php
+							$topLinks = get_field('top_links', 'option');
+							$topLinksLength = count($topLinks);
+							for($i = 0; $i < $topLinksLength; $i++) {
+								echo '<li><a href="' . $topLinks[$i]['link'] . '" title="' . $topLinks[$i]['title'] . '"><i class="fa fa-' . $topLinks[$i]['icon'] . '"></i></a></li>';
+							}
+							?>
 						</ul>
 						<div class="material-menu-button pull-right">
 							<span></span>
