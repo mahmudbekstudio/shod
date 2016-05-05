@@ -115,6 +115,7 @@ function mg_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Language block' ),
         'id' => 'lang-block',
+	    'class' => 'asdasd',
         'description' => __( 'Language block' ),
         'before_widget' => '',
         'after_widget' => '',

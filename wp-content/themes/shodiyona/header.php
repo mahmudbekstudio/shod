@@ -21,14 +21,12 @@
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/swiper.min.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?php bloginfo( 'template_directory' ); ?>/css/prettyPhoto.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/price-range.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/animate.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/main.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/responsive.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="<?php bloginfo( 'template_directory' ); ?>/js/html5shiv.js"></script>
-	<script src="<?php bloginfo( 'template_directory' ); ?>/js/respond.min.js"></script>
 	<![endif]-->
 	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon.ico" type="image/x-icon">
@@ -95,22 +93,38 @@ if(is_front_page() || is_home()) {
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu dropdown-menu-sm">
-								<?php
-								foreach($q_config['language_name'] as $leng => $langTitle) {
+							<?php
+							foreach($q_config['language_name'] as $lang => $langTitle) {
+								if($q_config['language'] != $lang) {
 									$url = (is_front_page() || is_home()) ? home_url( '/' ) : get_permalink();
-									echo '<li><a href="' . qtrans_convertURL($url, $leng) . '">' . $langTitle . '</a></li>';
+									echo '<li><a href="' . qtranxf_convertURL($url, $lang) . '">' . $langTitle . '</a></li>';
 								}
-								?>
+							}
+							?>
 							</ul>
 						</div>
 
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								USD
+								<?php
+								global $currencyCode, $currencyList;
+								$currencyListCount = count($currencyList);
+								for($i = 0; $i < $currencyListCount; $i++) {
+									if($currencyList[$i]['code'] == $currencyCode) {
+										echo $currencyList[$i]['title'];
+									}
+								}
+								?>
 								<span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu dropdown-menu-sm">
-								<li><a href="#">UZS</a></li>
+							<ul class="dropdown-menu dropdown-menu-sm currency-list">
+								<?php
+								for($i = 0; $i < $currencyListCount; $i++) {
+									if($currencyList[$i]['code'] != $currencyCode) {
+										echo '<li><a href="#" data-currency="' . $currencyList[$i]['code'] . '">' . $currencyList[$i]['title'] . '</a></li>';
+									}
+								}
+								?>
 							</ul>
 						</div>
 					</div>

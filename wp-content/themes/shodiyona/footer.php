@@ -96,8 +96,8 @@
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/bootstrap.min.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.scrollUp.min.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/price-range.js"></script>
-<script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.prettyPhoto.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/materialmenu.jquery.min.js"></script>
+<script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.cookie.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/main.js"></script>
 <?php wp_footer(); ?>
 </body>

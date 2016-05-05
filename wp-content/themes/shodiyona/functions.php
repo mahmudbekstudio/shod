@@ -17,6 +17,8 @@ $error=array();
 $message=array();
 $info_arr=array();
 
+
+
 /*if(isset($_GET['start_lang'])) {
 	$domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
 	setcookie('start_lang', $_GET['start_lang'], time()+60*60*24*30, '/', $domain, false);
