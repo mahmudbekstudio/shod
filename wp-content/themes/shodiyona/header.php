@@ -38,11 +38,13 @@
 	<link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_directory' ); ?>/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <?php
+global $q_config;
 $bodyClass = array();
 if(is_front_page() || is_home()) {
 	$bodyClass[] = 'index-page';
 }
-
+//print_r($q_config);print_r(get_permalink());exit;
+//print_r(qtrans_getSortedLanguages());exit;
 ?>
 <body class="<?php echo join(' ', $bodyClass) ?>">
 <header id="header"><!--header-->
@@ -89,12 +91,16 @@ if(is_front_page() || is_home()) {
 					<div class="btn-group pull-right">
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								O'zb
+								<?php echo $q_config['language_name'][$q_config['language']]; ?>
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu dropdown-menu-sm">
-								<li><a href="#">Рус</a></li>
-								<li><a href="#">O'zb</a></li>
+								<?php
+								foreach($q_config['language_name'] as $leng => $langTitle) {
+									$url = (is_front_page() || is_home()) ? home_url( '/' ) : get_permalink();
+									echo '<li><a href="' . qtrans_convertURL($url, $leng) . '">' . $langTitle . '</a></li>';
+								}
+								?>
 							</ul>
 						</div>
 
