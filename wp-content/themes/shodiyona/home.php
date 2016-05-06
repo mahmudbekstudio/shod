@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Main Template
+*/
+get_header(); ?>
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide item">

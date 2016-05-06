@@ -150,7 +150,18 @@ if(is_front_page() || is_home()) {
 				<div class="col-sm-9">
 
 					<div class="material-menu mainmenu">
-						<nav>
+						<?php
+						$menuArr = array(
+							'menu' => 'Menu',
+							'menu_class' => 'material-menu-list navbar-nav',
+							'menu_id' => '',
+							'container' => 'nav',
+							'container_class' => '',
+							'container_id' => ''
+							);
+						wp_nav_menu ( $menuArr );
+						?>
+						<!--nav>
 							<ul class="material-menu-list navbar-nav">
 								<li><a href="index.html" class="active">Главная</a></li>
 								<li class="has-dropdown"><a href="#">Категория<i class="fa fa-angle-down"></i></a>
@@ -169,7 +180,7 @@ if(is_front_page() || is_home()) {
 								<li><a href="#">Новости</a></li>
 								<li><a href="contact-us.html">Контакты</a></li>
 							</ul>
-						</nav>
+						</nav-->
 					</div>
 				</div>
 			</div>
