@@ -13,8 +13,8 @@ get_header(); ?>
 				<button type="button" class="btn btn-default get">Get it now</button>
 			</div>
 			<div class="col-sm-6">
-				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/pricing.png"  class="pricing" alt="" />
+				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/mersedes.jpg" class="girl img-responsive" alt="" />
+<!--				<img src="--><?php //bloginfo( 'template_directory' ); ?><!--/images/home/pricing.png"  class="pricing" alt="" />   -->
 			</div>
 		</div>
 		<div class="swiper-slide item">
@@ -25,8 +25,8 @@ get_header(); ?>
 				<button type="button" class="btn btn-default get">Get it now</button>
 			</div>
 			<div class="col-sm-6">
-				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/girl2.jpg" class="girl img-responsive" alt="" />
-				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/pricing.png"  class="pricing" alt="" />
+				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/flowers.png" class="girl img-responsive" alt="" />
+<!--				<img src="--><?php //bloginfo( 'template_directory' ); ?><!--/images/home/pricing.png"  class="pricing" alt="" />-->
 			</div>
 		</div>
 		<div class="swiper-slide item">
@@ -37,8 +37,8 @@ get_header(); ?>
 				<button type="button" class="btn btn-default get">Get it now</button>
 			</div>
 			<div class="col-sm-6">
-				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/girl3.jpg" class="girl img-responsive" alt="" />
-				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/pricing.png" class="pricing" alt="" />
+				<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/restaurant.png" class="girl img-responsive" alt="" />
+<!--				<img src="--><?php //bloginfo( 'template_directory' ); ?><!--/images/home/pricing.png" class="pricing" alt="" />-->
 			</div>
 		</div>
 		<div class="swiper-slide item">

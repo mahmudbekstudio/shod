@@ -605,7 +605,8 @@ ul.sub-menu {
 }
 
 .girl {
-  margin-left: 0;
+  margin-left: 100px !important;
+  margin-top: 80px !important;
 }
 
 .item h1 {
