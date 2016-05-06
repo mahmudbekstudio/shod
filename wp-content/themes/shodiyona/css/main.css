@@ -2412,7 +2412,7 @@ h2.title {
 }
 
 .btn.btn-primary {
-  background:#FE980F;
+  background:#6d288c;
   border: 0 none;
   border-radius: 0;
   margin-top: 16px;
@@ -2461,7 +2461,6 @@ h2.title {
 }
 
 #contact-page .form-control {
-  background-color: #FDDAEB;
   border: 1px solid #ddd;
   color: #6D288C;
   height: 46px;
@@ -2486,7 +2485,7 @@ h2.title {
 #contact-page .form-control:focus, 
 #contact-page .form-control:hover {
   box-shadow: inherit;
-  border-color: #FDB45E;
+  border-color: #6d288c;
 }
 
 #contact-page .contact-info {
@@ -2538,6 +2537,16 @@ h2.title {
 
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
+}
+
+div.wpcf7-validation-errors {
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+  border: 1px solid #faebcc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 15px;
+  clear: both;
 }
 
 /** On desktop, we do not need to show menu button */
