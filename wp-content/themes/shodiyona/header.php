@@ -56,6 +56,9 @@ if(is_front_page() || is_home()) {
 							<li><a href="mailto: <?php $email = get_field('e-mail', 'option'); echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
 						</ul>
 					</div>
+					<?php if(!(is_front_page() || is_home())) : ?>
+					<a href="#" class="back-prev-page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+					<?php endif; ?>
 				</div>
 				<div class="col-sm-6">
 					<div class="social-icons pull-right">
@@ -84,7 +87,7 @@ if(is_front_page() || is_home()) {
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="index.html"><img src="<?php bloginfo( 'template_directory' ); ?>/images/home/logo.png" alt="" /></a>
+						<a href="<?php echo home_url('/'); ?>"><img src="<?php bloginfo( 'template_directory' ); ?>/images/home/logo.png" alt="" /></a>
 					</div>
 					<div class="btn-group pull-right">
 						<div class="btn-group">
@@ -150,20 +153,36 @@ if(is_front_page() || is_home()) {
 				<div class="col-sm-9">
 
 					<div class="material-menu mainmenu">
-						<?php
-						$menuArr = array(
-							'menu' => 'Menu',
-							'menu_class' => 'material-menu-list navbar-nav',
-							'menu_id' => '',
-							'container' => 'nav',
-							'container_class' => '',
-							'container_id' => ''
-							);
-						wp_nav_menu ( $menuArr );
-						?>
-						<!--nav>
+						<nav>
 							<ul class="material-menu-list navbar-nav">
-								<li><a href="index.html" class="active">Главная</a></li>
+								<li class="material-menu-logo"><a href="<?php echo home_url('/'); ?>"><img src="<?php bloginfo( 'template_directory' ); ?>/images/home/logo.png" alt="" /></a></li>
+								<?php
+								$isFirst = true;
+								$menuList = get_menu_list('Menu');
+								foreach($menuList as $id => $menuItem) {
+									$menuActive = false;
+									if(site_url() . $_SERVER['REQUEST_URI'] == $menuItem['url']) {
+										$menuActive = true;
+									}
+									if(empty($menuItem['children'])) {
+										echo '<li class="' . ($isFirst ? 'first-element' : '') . '"><a href="' . $menuItem['url'] . '" class="' . ($menuActive ? 'active' : '') . '">' . $menuItem['title'] . '</a></li>';
+									} else {
+										echo '<li class="has-dropdown' . ($isFirst ? ' first-element' : '') . '"><a href="' . $menuItem['url'] . '" class="' . ($menuActive ? 'active' : '') . '">' . $menuItem['title'] . '<i class="fa fa-angle-down"></i></a>';
+										echo '<ul class="dropdown sub-menu">';
+										foreach($menuItem['children'] as $subMenuId => $subMenuItem) {
+											$subMenuActive = false;
+											if(site_url() . $_SERVER['REQUEST_URI'] == $subMenuItem['url']) {
+												$subMenuActive = true;
+											}
+											echo '<li><a href="' . $subMenuItem['url'] . '" class="' . ($subMenuActive ? 'active' : '') . '">' . $subMenuItem['title'] . '</a></li>';
+										}
+										echo '</ul>';
+										echo '</li>';
+									}
+									$isFirst = false;
+								}
+								?>
+								<? /*<li><a href="index.html" class="active">Главная</a></li>
 								<li class="has-dropdown"><a href="#">Категория<i class="fa fa-angle-down"></i></a>
 									<ul class="dropdown sub-menu">
 										<li><a href="shop.html">Рестораны</a></li>
@@ -178,9 +197,9 @@ if(is_front_page() || is_home()) {
 									</ul>
 								</li>
 								<li><a href="#">Новости</a></li>
-								<li><a href="contact-us.html">Контакты</a></li>
+								<li><a href="contact-us.html">Контакты</a></li>*/ ?>
 							</ul>
-						</nav-->
+						</nav>
 					</div>
 				</div>
 			</div>

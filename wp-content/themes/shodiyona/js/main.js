@@ -39,4 +39,9 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$('.back-prev-page').on('click', function() {
+		window.history.back();
+		return false;
+	});
+
 });

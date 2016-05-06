@@ -240,8 +240,8 @@ a#scrollUp i{
   padding-left: 15px;
 }
 
-.mainmenu ul li:first-child{
-  padding-left: 0px;
+.mainmenu ul li.first-element{
+  padding-left: 0;
 }
 
 .mainmenu ul li a {
@@ -287,13 +287,13 @@ a#scrollUp i{
 }
 
 
-.nav.navbar-nav > li:hover > ul.sub-menu{
+.navbar-nav > li:hover > ul.sub-menu{
   display: block;
-  -webkit-animation: fadeInUp 400ms;
-  -moz-animation: fadeInUp 400ms;
-  -ms-animation: fadeInUp 400ms;
-  -o-animation: fadeInUp 400ms;
-  animation: fadeInUp 400ms;
+  -webkit-animation: fadeInUp 100ms;
+  -moz-animation: fadeInUp 100ms;
+  -ms-animation: fadeInUp 100ms;
+  -o-animation: fadeInUp 100ms;
+  animation: fadeInUp 100ms;
 }
 
 ul.sub-menu {
@@ -2564,8 +2564,44 @@ h2.title {
 	display: block;
 }
 
+.back-prev-page {
+  display: none;
+}
+
+.mainmenu ul li a.active {
+  text-decoration: underline;
+}
+
+.material-menu-logo {
+  display: none !important;
+}
+
 /** Menu in mobile-view */
 @media only screen and (max-width: 767px) {
+
+  .navbar-nav > li:hover > ul.sub-menu{
+    display: block;
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    -o-animation: none;
+    animation: none;
+  }
+
+  .mainmenu ul li.first-element{
+    padding-left: 15px;
+  }
+
+  .material-menu-logo {
+    display: block !important;
+    text-align: center;
+  }
+
+  .back-prev-page {
+    display: block;
+    font-size: 30px;
+    color: #6d288c;
+  }
 
 	.navbar-nav li ul.sub-menu li a:hover{
 		color: #EA4397 !important;
@@ -2602,6 +2638,7 @@ h2.title {
 		height:45px;
 		padding:10px 10px 0px 10px;
 		background-color:#F0F0E9;
+    cursor: pointer;
 	}
 	.material-menu-button span {
 		display:block;
