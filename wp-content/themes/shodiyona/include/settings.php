@@ -27,8 +27,8 @@ $currentUrl = site_url() . $_SERVER['REQUEST_URI'];
 
 global $countryList;
 $countryList = array(
-	'Uzbekistan' => array(
-		'Andijan region' => array(
+	'uzbekistan' => array(
+		'undijan region' => array(
 			'ahunbabayev' => array(),
 			'andijan' => array(),
 			'asaka' => array(),
@@ -39,7 +39,7 @@ $countryList = array(
 			'paytug' => array(),
 			'shakhrikhan' => array(),
 		),
-		'Bukhara region' => array(
+		'bukhara region' => array(
 			'alat' => array(),
 			'bukhara' => array(),
 			'galaasiya' => array(),
@@ -52,7 +52,7 @@ $countryList = array(
 			'vabkent' => array(),
 
 		),
-		'Jizzakh region' => array(
+		'jizzakh region' => array(
 			'dashtabad' => array(),
 			'dostlik' => array(),
 			'djisak' => array(),
@@ -61,7 +61,7 @@ $countryList = array(
 			'mardjanbulak' => array(),
 			'pakhtakar' => array(),
 		),
-		'Karakapakhstan region' => array(
+		'karakapakhstan region' => array(
 			'beruniy' => array(),
 			'bustan' => array(),
 			'chimbay' => array(),
@@ -74,7 +74,7 @@ $countryList = array(
 			'takhiatash' => array(),
 			'turtkul' => array(),
 		),
-		'Kashkaryo region' => array(
+		'kashkaryo region' => array(
 			'beshkent' => array(),
 			'chiroqchi' => array(),
 			'dekhkanabad' => array(),
@@ -92,7 +92,7 @@ $countryList = array(
 			'yakkabag' => array(),
 
 		),
-		'Navoiy region' => array(
+		'navoiy region' => array(
 			'kiziltepa' => array(),
 			'navoiy' => array(),
 			'nurata' => array(),
@@ -100,7 +100,7 @@ $countryList = array(
 			'yangirabat' => array(),
 			'zarafshan' => array(),
 		),
-		'Namangan region' => array(
+		'namangan region' => array(
 			'chartak' => array(),
 			'chust' => array(),
 			'khakulabad' => array(),
@@ -110,7 +110,7 @@ $countryList = array(
 			'turakurgan' => array(),
 			'uchkurgan' => array(),
 		),
-		'Samarkand region' => array(
+		'samarkand region' => array(
 			'aktash' => array(),
 			'bulungur' => array(),
 			'chilek' => array(),
@@ -123,7 +123,7 @@ $countryList = array(
 			'urgut' => array(),
 			'ziadin' => array(),
 		),
-		'Surkhandaryo region' => array(
+		'surkhandaryo region' => array(
 			'baysun' => array(),
 			'denay' => array(),
 			'djarkurgan' => array(),
@@ -136,7 +136,7 @@ $countryList = array(
 			'termez' => array(),
 
 		),
-		'Fergana region' => array(
+		'fergana region' => array(
 			'besharik' => array(),
 			'fergana' => array(),
 			'khamza' => array(),
@@ -146,7 +146,7 @@ $countryList = array(
 			'margilan' => array(),
 			'rishtan' => array(),
 		),
-		'Khorazm region' => array(
+		'khorazm region' => array(
 			'bagat' => array(),
 			'Gurlen' => array(),
 			'Khanka' => array(),
@@ -154,14 +154,13 @@ $countryList = array(
 			'Pitnak' => array(),
 			'Urgench' => array(),
 		),
-		'Sirdaryo' => array(
+		'sirdaryo' => array(
 			'baxt' => array(),
 			'gulistan' => array(),
 			'shirin' => array(),
 			'sirdaryo' => array(),
 			'yangiyer' => array(),
 		),
-		///
 		'tashkent region' => array(
 			'ahangaran' => array(),
 			'akkurgan' => array(),
