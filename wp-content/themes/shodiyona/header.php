@@ -97,10 +97,10 @@ if(is_front_page() || is_home()) {
 							</button>
 							<ul class="dropdown-menu dropdown-menu-sm">
 							<?php
+							global $currentUrl;
 							foreach($q_config['language_name'] as $lang => $langTitle) {
 								if($q_config['language'] != $lang) {
-									$url = (is_front_page() || is_home()) ? home_url( '/' ) : get_permalink();
-									echo '<li><a href="' . qtranxf_convertURL($url, $lang) . '">' . $langTitle . '</a></li>';
+									echo '<li><a href="' . qtranxf_convertURL($currentUrl, $lang) . '">' . $langTitle . '</a></li>';
 								}
 							}
 							?>
@@ -159,9 +159,10 @@ if(is_front_page() || is_home()) {
 								<?php
 								$isFirst = true;
 								$menuList = get_menu_list('Menu');
+								global $currentUrl;
 								foreach($menuList as $id => $menuItem) {
 									$menuActive = false;
-									if(site_url() . $_SERVER['REQUEST_URI'] == $menuItem['url']) {
+									if($currentUrl == $menuItem['url']) {
 										$menuActive = true;
 									}
 									if(empty($menuItem['children'])) {

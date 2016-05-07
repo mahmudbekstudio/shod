@@ -21,3 +21,6 @@ if(isset($_COOKIE['currencyCode'])) {
 if(!isset($_COOKIE['currencyCode'])) {
 	setcookie("currencyCode", $currencyCode, time()+(60*60*24*30), '/');
 }
+
+global $currentUrl;
+$currentUrl = site_url() . $_SERVER['REQUEST_URI'];

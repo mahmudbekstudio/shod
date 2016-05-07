@@ -364,7 +364,7 @@ function mg_image_attachment_fields_to_save($post, $attachment) {
 function new_excerpt_more( $excerpt ) {
 	return '...';
 }
-//add_filter( 'excerpt_more', 'new_excerpt_more' );
+add_filter( 'excerpt_more', 'new_excerpt_more' );
 function custom_excerpt_more( $more ) {
     return ' <a class="moretext" href="' . get_permalink() . '"></a>';
 }

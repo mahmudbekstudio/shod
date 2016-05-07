@@ -1110,25 +1110,29 @@ h2.title {
   width: 100%;
 }
 
-.pagination {
+.pagination,
+.wp-paginate {
   display: inline-block;
   margin-bottom: 25px;
   margin-top: 0;
   padding-left: 15px;
 }
 
-.pagination  li:first-child  a, .pagination  li:first-child  span {
+.pagination  li:first-child  a, .pagination  li:first-child  span,
+.wp-paginate  li:first-child  a, .wp-paginate  li:first-child  span {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   margin-left: 0;
 }
 
-.pagination  li:last-child  a, .pagination  li:last-child  span {
+.pagination  li:last-child  a, .pagination  li:last-child  span,
+.wp-paginate  li:last-child  a, .wp-paginate  li:last-child  span {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
-.pagination  .active  a, .pagination  .active  span, .pagination  .active  a:hover, .pagination  .active  span:hover, .pagination  .active  a:focus, .pagination  .active  span:focus {
+.pagination  .active  a, .pagination  .active  span, .pagination  .active  a:hover, .pagination  .active  span:hover, .pagination  .active  a:focus, .pagination  .active  span:focus ,
+.wp-paginate  .active  a, .wp-paginate  .active  span, .wp-paginate  .active  a:hover, .wp-paginate  .active  span:hover, .wp-paginate  .active  a:focus, .wp-paginate  .active  span:focus {
   background-color: #6d288c;
   border-color: #6d288c;
   color: #FDDAEB;
@@ -1136,7 +1140,8 @@ h2.title {
   z-index: 2;
 }
 
-.pagination  li  a, .pagination  li  span {
+.pagination  li  a, .pagination  li  span,
+.wp-paginate  li  a, .wp-paginate  li  span {
   background-color: #f0f0e9;
   border: 0;
   float: left;
@@ -1149,7 +1154,8 @@ h2.title {
   color:#000;
 }
 
-.pagination  li  a:hover{
+.pagination  li  a:hover,
+.wp-paginate  li  a:hover {
 	background:#6d288c;
   color: #FDDAEB;
 }
@@ -2062,8 +2068,8 @@ h2.title {
 
 .blog-post-area 
 .post-meta ul li i {
-  background:#FE980F;
-  /*color: #FDDAEBFDDAEB;*/
+  background:#6d288c;
+  color: #FFF;
   margin-left: -4px;
   margin-right: 7px;
   padding: 4px 7px;
@@ -2076,7 +2082,7 @@ h2.title {
   position: absolute;
   width: auto;
   height: auto;
-  border-color:transparent transparent transparent #FE980F;
+  border-color:transparent transparent transparent #6d288c;
   border-width:4px;
   border-style: solid;
   top:6px;
@@ -2101,7 +2107,7 @@ h2.title {
 .blog-post-area  
 .single-blog-post 
 .btn-primary {
-  background:#FE980F;
+  background:#6d288c;
   border: medium none;
   border-radius: 0;
   /*color: #FDDAEBFDDAEB;*/
@@ -2115,7 +2121,9 @@ h2.title {
 }
 
 .pagination-area 
-.pagination li a {
+.pagination li a,
+.wp-paginate li a,
+.wp-paginate li span{
   background:#F0F0E9;
   border: 0 none;
   border-radius: 0;
@@ -2126,10 +2134,16 @@ h2.title {
 
 .pagination-area 
 .pagination li a:hover,
-.pagination-area 
-.pagination li .active {
-  background:#FE980F;
+.pagination-area
+.pagination li .active
+.pagination-area .wp-paginate li a:hover,
+.pagination-area .wp-paginate li .current {
+  background:#6d288c ;
   color: #FDDAEB
+}
+
+.wp-paginate > li {
+  display: inline;
 }
 
 
