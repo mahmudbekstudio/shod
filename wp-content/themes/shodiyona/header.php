@@ -207,3 +207,9 @@ if(is_front_page() || is_home()) {
 		</div>
 	</div><!--/header-bottom-->
 </header><!--/header-->
+
+<section id="advertisement">
+	<div class="container">
+		<img src="images/shop/advertisement.jpg" alt="" />
+	</div>
+</section>

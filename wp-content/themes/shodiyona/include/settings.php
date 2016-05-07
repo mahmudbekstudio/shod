@@ -24,3 +24,22 @@ if(!isset($_COOKIE['currencyCode'])) {
 
 global $currentUrl;
 $currentUrl = site_url() . $_SERVER['REQUEST_URI'];
+
+global $countryList;
+$countryList = array(
+	'uzbekistan' => array(
+		'andijan region' => array(),
+		'bukhara region' => array(),
+		///
+		'tashkent region' => array(
+			'ahangaran' => array(),
+			'akkurgan',
+			'tashkent' => array(
+				'bektemir',
+				'chilanzar',
+				'yashnabad'
+			)
+		)
+	),
+	'russian' => array()
+);

@@ -30,7 +30,7 @@
 						</a>
 						<?php endif; ?>
 						<?php the_excerpt(); ?>
-						<a class="btn btn-primary" href="<?php the_permalink(); ?>">Read More</a>
+						<a class="btn btn-primary" href="<?php the_permalink(); ?>"><?php Language::_e('Read more') ?></a>
 					</div>
 					<?php endwhile; ?>
 					<?php

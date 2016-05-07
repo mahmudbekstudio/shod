@@ -351,34 +351,6 @@ function create_taxanomy_type() {
 		//'query_var' => true,
 		'rewrite' => array( 'slug' => 'product_category' ),
 	));*/
-	register_taxonomy('cat_agency','agency',array(
-		//'hierarchical' => false,
-		'labels' => array('name' =>'Category agency'),
-		'hierarchical' => true,
-		'show_ui' => true,
-		'query_var' => true,
-		'public' => true,
-		//'show_ui' => true,
-		//'query_var' => true,
-		//'show_ui' => true,
-		//'update_count_callback' => '_update_post_term_count',
-		//'query_var' => true,
-		'rewrite' => array( 'slug' => 'cat_agency' ),
-	));
-	register_taxonomy('cat_country','city',array(
-		//'hierarchical' => false,
-		'labels' => array('name' =>'Category country'),
-		'hierarchical' => true,
-		'show_ui' => true,
-		'query_var' => false,
-		'public' => true,
-		//'show_ui' => true,
-		//'query_var' => true,
-		//'show_ui' => true,
-		//'update_count_callback' => '_update_post_term_count',
-		//'query_var' => true,
-		'rewrite' => array( 'slug' => 'cat_country' ),
-	));
 }
 //add_action( 'init', 'create_taxanomy_type', 0 );
 add_action( 'init', 'create_post_type' );
@@ -606,13 +578,13 @@ function get_custom_post_type_template($single_template) {
     return $single_template;
 }
 
-//add_action('acf/register_fields', 'my_register_fields');
+add_action('acf/register_fields', 'my_register_fields');
 
 function my_register_fields()
 {
-    include_once('acf/text_multilang.php');
-    include_once('acf/textarea_multilang.php');
-    include_once('acf/wysiwyg_multilang.php');
+    include_once('acf/country_select.php');
+    //include_once('acf/textarea_multilang.php');
+    //include_once('acf/wysiwyg_multilang.php');
 }
 
 //add_action('event_add_form', 'qtrans_modifyTermFormFor');
