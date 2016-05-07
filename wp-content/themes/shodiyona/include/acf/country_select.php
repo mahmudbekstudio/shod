@@ -31,16 +31,16 @@ class select_country extends acf_field_text {
 		$city = '';
 		$district = '';
 		foreach($countryList as $key=>$val) {
-			$country .= '<option value="' . $key . '">' . $key . '</option>';
+			$country .= '<option value="' . $key . '">' . Language::__($key) . '</option>';
 			if(count($val) > 0) {
 				foreach($val as $regionKey => $regionVal) {
-					$region .= '<option value="' . $regionKey . '" data-country="' . $key . '">' . $regionKey . '</option>';
+					$region .= '<option value="' . $regionKey . '" data-country="' . $key . '">' . Language::__($regionKey) . '</option>';
 					if(count($regionVal) > 0) {
 						foreach($regionVal as $cityKey => $cityVal) {
-							$city .= '<option value="' . $cityKey . '" data-country="' . $key . '" data-region="' . $regionKey . '">' . $cityKey . '</option>';
+							$city .= '<option value="' . $cityKey . '" data-country="' . $key . '" data-region="' . $regionKey . '">' . Language::__($cityKey) . '</option>';
 							if(count($cityVal) > 0) {
 								foreach($cityVal as $districtKey => $districtVal) {
-									$district .= '<option value="' . $districtVal . '" data-country="' . $key . '" data-region="' . $regionKey . '" data-city="' . $cityKey . '">' . $districtVal . '</option>';
+									$district .= '<option value="' . $districtVal . '" data-country="' . $key . '" data-region="' . $regionKey . '" data-city="' . $cityKey . '">' . Language::__($districtVal) . '</option>';
 								}
 							}
 						}
@@ -49,22 +49,22 @@ class select_country extends acf_field_text {
 			}
 		}
 		echo '<select class="select-country-country">';
-		echo '<option value="">Select Country</option>';
+		echo '<option value="">' . Language::__('Select Country') . '</option>';
 		echo $country;
 		echo '</select>';
 
 		echo '<select class="select-country-region hidden">';
-		echo '<option value="">Select Region</option>';
+		echo '<option value="">' . Language::__('Select Region') . '</option>';
 		echo $region;
 		echo '</select>';
 
 		echo '<select class="select-country-city hidden">';
-		echo '<option value="">Select City</option>';
+		echo '<option value="">' . Language::__('Select City') . '</option>';
 		echo $city;
 		echo '</select>';
 
 		echo '<select class="select-country-district hidden">';
-		echo '<option value="">Select Dsitrict</option>';
+		echo '<option value="">' . Language::__('Select Dsitrict') . '</option>';
 		echo $district;
 		echo '</select>';
 		?>
@@ -178,10 +178,6 @@ class select_country extends acf_field_text {
 			})(jQuery);
 		</script>
 		<?php
-		print_r($field);
-		$e = '';
-		// return
-		echo $e;
 	}
 
 }
