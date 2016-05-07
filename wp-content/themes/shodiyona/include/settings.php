@@ -28,7 +28,7 @@ $currentUrl = site_url() . $_SERVER['REQUEST_URI'];
 global $countryList;
 $countryList = array(
 	'uzbekistan' => array(
-		'undijan region' => array(
+		'andijan region' => array(
 			'ahunbabayev' => array(),
 			'andijan' => array(),
 			'asaka' => array(),
