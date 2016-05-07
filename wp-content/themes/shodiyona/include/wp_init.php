@@ -137,7 +137,7 @@ function mg_widgets_init() {
 add_action( 'widgets_init', 'mg_widgets_init' );
 
 //images
-//add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails' );
 //add_image_size( 'news_thumb', 210, 160, false );
 //add_image_size( 'medium_thumb', 220, 200, false );
 
@@ -182,46 +182,156 @@ function create_post_type() {
 			'rewrite' => true//array('slug' => 'video')
 		)
 	);*/
-
-	register_post_type( 'city',
+	register_post_type( 'auto',
 		array(
 			'labels' => array(
-				'name' => __( 'City' ),
-				'singular_name' => __( 'City' )
-			),
-			'public' => true,
-			'publicly_queryable'=>false,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => false,
-			//'rewrite' => false,
-			'exclude_from_search'=>true,
-			'supports'=>array('title', 'editor'
-				//, 'excerpt', 'editor', 'custom-fields', 'page-attributes'
-			),
-			//'taxonomies'=>array('gallery'),
-			//'has_archive' => true,
-			'rewrite' => true//array('slug' => 'video')
-		)
-	);
-
-	register_post_type( 'agency',
-		array(
-			'labels' => array(
-				'name' => __( 'Agency' ),
-				'singular_name' => __( 'Agency' )
+				'name' => __( 'Auto' ),
+				'singular_name' => __( 'Auto' )
 			),
 			'public' => true,
 			'publicly_queryable'=>true,
 			'show_in_menu'=>true,
 			'show_ui' => true,
 			'query_var' => true,
-			//'rewrite' => false,
 			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'thumbnail', 'author', 'excerpt'),
-			'taxonomies'=>array('cat_agency'),
-			//'has_archive' => true,
-			'rewrite' => array('slug' => 'agency')
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'auto')
+		)
+	);
+
+	register_post_type( 'beauty',
+		array(
+			'labels' => array(
+				'name' => __( 'Beauty and health' ),
+				'singular_name' => __( 'Beauty and health' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'beauty')
+		)
+	);
+
+	register_post_type( 'organization',
+		array(
+			'labels' => array(
+				'name' => __( 'Organization of weddings' ),
+				'singular_name' => __( 'Organization of weddings' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'organization')
+		)
+	);
+
+	register_post_type( 'photo',
+		array(
+			'labels' => array(
+				'name' => __( 'Photo and Video' ),
+				'singular_name' => __( 'Photo and Video' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'photo')
+		)
+	);
+
+	register_post_type( 'rent',
+		array(
+			'labels' => array(
+				'name' => __( 'Rent' ),
+				'singular_name' => __( 'Rent' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'rent')
+		)
+	);
+
+	register_post_type( 'rest',
+		array(
+			'labels' => array(
+				'name' => __( 'Recreation and entertainment' ),
+				'singular_name' => __( 'Recreation and entertainment' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'rest')
+		)
+	);
+
+	register_post_type( 'restaurant',
+		array(
+			'labels' => array(
+				'name' => __( 'Restaurants' ),
+				'singular_name' => __( 'Restaurants' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'restaurant')
+		)
+	);
+
+	register_post_type( 'shop',
+		array(
+			'labels' => array(
+				'name' => __( 'Trade shops' ),
+				'singular_name' => __( 'Trade shops' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'shop')
+		)
+	);
+
+	register_post_type( 'training',
+		array(
+			'labels' => array(
+				'name' => __( 'Training center' ),
+				'singular_name' => __( 'Training center' )
+			),
+			'public' => true,
+			'publicly_queryable'=>true,
+			'show_in_menu'=>true,
+			'show_ui' => true,
+			'query_var' => true,
+			'exclude_from_search'=>false,
+			'supports'=>array('title', 'editor', 'excerpt'),
+			'rewrite' => array('slug' => 'training')
 		)
 	);
 }
@@ -271,7 +381,7 @@ function create_taxanomy_type() {
 	));
 }
 //add_action( 'init', 'create_taxanomy_type', 0 );
-//add_action( 'init', 'create_post_type' );
+add_action( 'init', 'create_post_type' );
 
 /*function social_settings()
 {

@@ -186,15 +186,15 @@ if(is_front_page() || is_home()) {
 								<? /*<li><a href="index.html" class="active">Главная</a></li>
 								<li class="has-dropdown"><a href="#">Категория<i class="fa fa-angle-down"></i></a>
 									<ul class="dropdown sub-menu">
-										<li><a href="shop.html">Рестораны</a></li>
-										<li><a href="product-details.html">Организация Свадьбы</a></li>
-										<li><a href="checkout.html">Отдых и Развлечения</a></li>
-										<li><a href="cart.html">Красота и Здоровье</a></li>
-										<li><a href="login.html">Магазины торговля</a></li>
-										<li><a href="blog.html">Авто</a></li>
-										<li><a href="blog-single.html">Аренда</a></li>
-										<li><a href="blog-single.html">Фото и Видео</a></li>
-										<li><a href="blog-single.html">Учебные центры</a></li>
+										<li><a href="restaurant.html">Рестораны</a></li>
+										<li><a href="organization.html">Организация Свадьбы</a></li>
+										<li><a href="rest.html">Отдых и Развлечения</a></li>
+										<li><a href="beuty.html">Красота и Здоровье</a></li>
+										<li><a href="shop.html">Магазины торговля</a></li>
+										<li><a href="auto.html">Авто</a></li>
+										<li><a href="rent.html">Аренда</a></li>
+										<li><a href="photo.html">Фото и Видео</a></li>
+										<li><a href="training.html">Учебные центры</a></li>
 									</ul>
 								</li>
 								<li><a href="#">Новости</a></li>
