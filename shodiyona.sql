@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 07 2016 г., 14:59
+-- Время создания: Май 07 2016 г., 17:32
 -- Версия сервера: 5.5.38-log
 -- Версия PHP: 5.4.29
 
@@ -38408,7 +38408,7 @@ CREATE TABLE IF NOT EXISTS `shod8273_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=238 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=242 ;
 
 --
 -- Дамп данных таблицы `shod8273_postmeta`
@@ -38583,7 +38583,11 @@ INSERT INTO `shod8273_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`)
 (234, 55, 'field_572dc7a58e42f', 'a:14:{s:3:"key";s:19:"field_572dc7a58e42f";s:5:"label";s:6:"Region";s:4:"name";s:6:"region";s:4:"type";s:14:"select_country";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
 (235, 55, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:10:"restaurant";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
 (236, 4, '_config_errors', 'a:1:{s:11:"mail.sender";i:102;}'),
-(237, 10, '_config_errors', 'a:1:{s:11:"mail.sender";i:102;}');
+(237, 10, '_config_errors', 'a:1:{s:11:"mail.sender";i:102;}'),
+(238, 74, '_edit_last', '1'),
+(239, 74, '_edit_lock', '1462627461:1'),
+(240, 74, 'region', '{"country":"uzbekistan","region":"tashkent region","city":"tashkent","district":"olmazar"}'),
+(241, 74, '_region', 'field_572dc7a58e42f');
 
 -- --------------------------------------------------------
 
@@ -38620,7 +38624,7 @@ CREATE TABLE IF NOT EXISTS `shod8273_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=75 ;
 
 --
 -- Дамп данных таблицы `shod8273_posts`
@@ -38681,7 +38685,23 @@ INSERT INTO `shod8273_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`,
 (55, 1, '2016-05-07 15:26:45', '2016-05-07 10:26:45', '', '[:uz]Region[:]', '', 'publish', 'closed', 'closed', '', 'acf_ozbek-region', '', '', '2016-05-07 15:47:22', '2016-05-07 10:47:22', '', 0, 'http://shodiyona/?post_type=acf&#038;p=55', 0, 'acf', '', 0),
 (56, 1, '2016-05-07 15:27:16', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 15:27:16', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=56', 0, 'restaurant', '', 0),
 (57, 1, '2016-05-07 15:47:28', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 15:47:28', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=57', 0, 'restaurant', '', 0),
-(58, 1, '2016-05-07 15:53:40', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 15:53:40', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=58', 0, 'restaurant', '', 0);
+(58, 1, '2016-05-07 15:53:40', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 15:53:40', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=58', 0, 'restaurant', '', 0),
+(59, 1, '2016-05-07 16:35:10', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 16:35:10', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=59', 0, 'restaurant', '', 0),
+(60, 1, '2016-05-07 17:04:42', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:04:42', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=60', 0, 'restaurant', '', 0),
+(61, 1, '2016-05-07 17:05:43', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:05:43', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=61', 0, 'restaurant', '', 0),
+(62, 1, '2016-05-07 17:06:27', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:06:27', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=62', 0, 'restaurant', '', 0),
+(63, 1, '2016-05-07 17:10:13', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:10:13', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=63', 0, 'restaurant', '', 0),
+(64, 1, '2016-05-07 17:11:05', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:11:05', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=64', 0, 'restaurant', '', 0),
+(65, 1, '2016-05-07 17:11:50', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:11:50', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=65', 0, 'restaurant', '', 0),
+(66, 1, '2016-05-07 17:27:41', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:27:41', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=66', 0, 'restaurant', '', 0),
+(67, 1, '2016-05-07 17:28:04', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:28:04', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=67', 0, 'restaurant', '', 0),
+(68, 1, '2016-05-07 17:33:03', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:33:03', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=68', 0, 'restaurant', '', 0),
+(69, 1, '2016-05-07 17:43:45', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:43:45', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=69', 0, 'restaurant', '', 0),
+(70, 1, '2016-05-07 17:44:29', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:44:29', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=70', 0, 'restaurant', '', 0),
+(71, 1, '2016-05-07 17:45:16', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:45:16', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=71', 0, 'restaurant', '', 0),
+(72, 1, '2016-05-07 17:54:35', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:54:35', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=72', 0, 'restaurant', '', 0),
+(73, 1, '2016-05-07 17:57:32', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-05-07 17:57:32', '0000-00-00 00:00:00', '', 0, 'http://shodiyona/?post_type=restaurant&p=73', 0, 'restaurant', '', 0),
+(74, 1, '2016-05-07 17:59:49', '2016-05-07 12:59:49', '', '[:uz]test[:]', '', 'publish', 'closed', 'closed', '', 'ozbek-test', '', '', '2016-05-07 18:24:18', '2016-05-07 13:24:18', '', 0, 'http://shodiyona/?post_type=restaurant&#038;p=74', 0, 'restaurant', '', 0);
 
 -- --------------------------------------------------------
 
