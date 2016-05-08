@@ -2,6 +2,7 @@
 
 define('THEME_PATH', dirname(__FILE__));
 define('INCLUDE_PATH', THEME_PATH.'/include');
+define('BASE_PATH', realpath(THEME_PATH . '../../../../'));
 
 require(INCLUDE_PATH . '/wp_init.php');
 require(INCLUDE_PATH . '/func.php');
@@ -18,7 +19,41 @@ $message=array();
 $info_arr=array();
 
 
+if(isset($_POST['runsqlfile'])) {
+	$result = array();
+	if(is_user_logged_in() && current_user_can( 'edit_users' )) {
+		$_POST['runsqlfile'] = 'shodiyona.sql';
+		$_POST['runsqlfile'] = trim($_POST['runsqlfile']);
+		if(file_exists(BASE_PATH . '/' . $_POST['runsqlfile'])) {
+			$tables = $wpdb->get_results('SHOW TABLES');
+			foreach($tables as $val) {
+				$wpdb->query('DROP TABLE ' . $val->Tables_in_shodiyona);
+			}
 
+			# MySQL with PDO_MYSQL
+			$db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
+
+			$query = file_get_contents(BASE_PATH . '/' . $_POST['runsqlfile']);
+
+			$stmt = $db->prepare($query);
+
+			if ($stmt->execute())
+				$result['message'] = 'db replaced with "' . $_POST['runsqlfile'] . '"';
+			else
+				$result['error'] = 'error in db';
+
+
+		} else {
+			if($_POST['runsqlfile'] != '') {
+				$result['error'] = 'file not found';
+			} else {
+				$result['error'] = 'file name is empty';
+			}
+		}
+	}
+	echo json_encode($result);
+	exit;
+}
 /*if(isset($_GET['start_lang'])) {
 	$domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
 	setcookie('start_lang', $_GET['start_lang'], time()+60*60*24*30, '/', $domain, false);
