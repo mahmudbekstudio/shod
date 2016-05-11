@@ -197,7 +197,7 @@ function create_post_type() {
 				'show_ui' => true,
 				'query_var' => true,
 				'exclude_from_search'=>false,
-				'supports'=>array('title', 'editor', 'excerpt', 'custom-fields'),
+				'supports'=>array('title', 'editor', 'excerpt', 'thumbnail'),
 				'rewrite' => array('slug' => $name)
 			)
 		);
@@ -335,17 +335,22 @@ function function_car_pending_to_trash($post_id)
 add_action( 'pending_to_publish', 'function_car_pending_to_publish' );
 add_action( 'pending_to_trash', 'function_car_pending_to_trash' );*/
 
-/*function my_query_for_homepage( $query ) {
-	if($query->is_author())
+function my_custom_post_types( $query ) {
+	global $customPostTypes;
+	if(isset($customPostTypes[$query->query['pagename']])) {
+		$query->set( 'post_type', $query->query['pagename'] );
+		//print_r($query);exit;
+	}
+	/*if($query->is_author())
 	{
 		$query->set( 'posts_per_page', 19 );
 	}
     if( ($query->is_main_query() && $query->is_home()) || $query->is_author() ) {
         $query->set( 'post_type', array( 'car' ) );
         //$query->set( 'orderby', 'rand' );
-    }
+    }*/
 }
-add_action( 'pre_get_posts', 'my_query_for_homepage' );*/
+//add_action( 'pre_get_posts', 'my_custom_post_types' );
 
 //remove_filter('the_title', 'wptexturize');
 //remove_filter('the_content', 'wptexturize');
