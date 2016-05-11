@@ -48,22 +48,22 @@ class select_country extends acf_field_text {
 				}
 			}
 		}
-		echo '<select class="select-country-country">';
+		echo '<select name="select_country[country]" class="select-country-country">';
 		echo '<option value="">' . Language::__('Select Country') . '</option>';
 		echo $country;
 		echo '</select>';
 
-		echo '<select class="select-country-region hidden">';
+		echo '<select name="select_country[region]" class="select-country-region hidden">';
 		echo '<option value="">' . Language::__('Select Region') . '</option>';
 		echo $region;
 		echo '</select>';
 
-		echo '<select class="select-country-city hidden">';
+		echo '<select name="select_country[city]" class="select-country-city hidden">';
 		echo '<option value="">' . Language::__('Select City') . '</option>';
 		echo $city;
 		echo '</select>';
 
-		echo '<select class="select-country-district hidden">';
+		echo '<select name="select_country[district]" class="select-country-district hidden">';
 		echo '<option value="">' . Language::__('Select Dsitrict') . '</option>';
 		echo $district;
 		echo '</select>';
@@ -71,8 +71,7 @@ class select_country extends acf_field_text {
 		<script>
 			(function($) {
 				var selectCountryInput = $('input[name="<?php echo $field['name']; ?>"]');
-				var selectCountryVal = JSON.parse(selectCountryInput.val());
-				console.log(selectCountryVal);
+				var selectCountryVal = selectCountryInput.val() ? JSON.parse(selectCountryInput.val()) : {};
 				selectCountryInput.addClass('hidden');
 				$('.select-country-country').on('change', function() {
 					var val = jQuery(this).val();

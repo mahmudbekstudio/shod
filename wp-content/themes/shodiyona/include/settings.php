@@ -25,6 +25,19 @@ if(!isset($_COOKIE['currencyCode'])) {
 global $currentUrl;
 $currentUrl = site_url() . $_SERVER['REQUEST_URI'];
 
+global $customPostTypes;
+$customPostTypes = array(
+	'auto' => array('title' => 'Auto'),
+	'beauty' => array('title' => 'Beauty and health'),
+	'organization' => array('title' => 'Organization of weddings'),
+	'photo' => array('title' => 'Photo and Video'),
+	'rent' => array('title' => 'Rent'),
+	'rest' => array('title' => 'Recreation and entertainment'),
+	'restaurant' => array('title' => 'Restaurants'),
+	'shop' => array('title' => 'Trade shops'),
+	'training' => array('title' => 'Training center')
+);
+
 global $countryList;
 $countryList = array(
 	'uzbekistan' => array(

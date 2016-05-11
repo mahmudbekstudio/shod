@@ -182,158 +182,26 @@ function create_post_type() {
 			'rewrite' => true//array('slug' => 'video')
 		)
 	);*/
-	register_post_type( 'auto',
-		array(
-			'labels' => array(
-				'name' => __( 'Auto' ),
-				'singular_name' => __( 'Auto' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'auto')
-		)
-	);
 
-	register_post_type( 'beauty',
-		array(
-			'labels' => array(
-				'name' => __( 'Beauty and health' ),
-				'singular_name' => __( 'Beauty and health' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'beauty')
-		)
-	);
-
-	register_post_type( 'organization',
-		array(
-			'labels' => array(
-				'name' => __( 'Organization of weddings' ),
-				'singular_name' => __( 'Organization of weddings' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'organization')
-		)
-	);
-
-	register_post_type( 'photo',
-		array(
-			'labels' => array(
-				'name' => __( 'Photo and Video' ),
-				'singular_name' => __( 'Photo and Video' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'photo')
-		)
-	);
-
-	register_post_type( 'rent',
-		array(
-			'labels' => array(
-				'name' => __( 'Rent' ),
-				'singular_name' => __( 'Rent' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'rent')
-		)
-	);
-
-	register_post_type( 'rest',
-		array(
-			'labels' => array(
-				'name' => __( 'Recreation and entertainment' ),
-				'singular_name' => __( 'Recreation and entertainment' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'rest')
-		)
-	);
-
-	register_post_type( 'restaurant',
-		array(
-			'labels' => array(
-				'name' => __( 'Restaurants' ),
-				'singular_name' => __( 'Restaurants' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'restaurant')
-		)
-	);
-
-	register_post_type( 'shop',
-		array(
-			'labels' => array(
-				'name' => __( 'Trade shops' ),
-				'singular_name' => __( 'Trade shops' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'shop')
-		)
-	);
-
-	register_post_type( 'training',
-		array(
-			'labels' => array(
-				'name' => __( 'Training center' ),
-				'singular_name' => __( 'Training center' )
-			),
-			'public' => true,
-			'publicly_queryable'=>true,
-			'show_in_menu'=>true,
-			'show_ui' => true,
-			'query_var' => true,
-			'exclude_from_search'=>false,
-			'supports'=>array('title', 'editor', 'excerpt'),
-			'rewrite' => array('slug' => 'training')
-		)
-	);
+	global $customPostTypes;
+	foreach($customPostTypes as $name => $item) {
+		register_post_type( $name,
+			array(
+				'labels' => array(
+					'name' => __( $item['title'] ),
+					'singular_name' => __( $item['title'] )
+				),
+				'public' => true,
+				'publicly_queryable'=>true,
+				'show_in_menu'=>true,
+				'show_ui' => true,
+				'query_var' => true,
+				'exclude_from_search'=>false,
+				'supports'=>array('title', 'editor', 'excerpt', 'custom-fields'),
+				'rewrite' => array('slug' => $name)
+			)
+		);
+	}
 }
 function create_taxanomy_type() {
 
@@ -613,3 +481,12 @@ function qtranslate_edit_taxonomies(){
 	}
 }
 //add_action('admin_init', 'qtranslate_edit_taxonomies');
+
+function save_post_meta( $post_id, $post, $update ) {
+	if($update && isset($_POST['select_country'])) {
+		foreach($_POST['select_country'] as $key => $val) {
+			update_post_meta($post_id, 'select_country_' . $key, $val);
+		}
+	}
+}
+add_action( 'save_post', 'save_post_meta', 10, 3 );
