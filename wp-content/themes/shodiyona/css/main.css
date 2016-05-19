@@ -2720,3 +2720,8 @@ div.wpcf7-validation-errors {
   width: 10px;
   background-position: left;
 }
+
+.ajax-load {
+  text-align: center;
+  color: #6d288c;
+}

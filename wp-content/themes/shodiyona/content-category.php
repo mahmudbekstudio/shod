@@ -1,3 +1,4 @@
+<?php if(!isset($_POST['ajaxLoad'])) : ?>
 <?php get_header(); ?>
 <section>
 	<div class="container">
@@ -145,7 +146,17 @@
 			<div class="col-sm-9 padding-right">
 				<div class="features_items"><!--features_items-->
 					<h2 class="title text-center">Features Items</h2>
-					<?php while ( have_posts() ) : the_post(); ?>
+<?php endif; ?>
+					<?php
+$postsPaged = isset($_POST['postsPaged']) && $_POST['postsPaged'] > 0 ? $_POST['postsPaged'] : 1;
+$args = array(
+	'post_type' => $GLOBALS['post_type'],
+	'posts_per_page' => 12,
+	'paged' => $postsPaged
+);
+$the_query = new WP_Query( $args );
+if($the_query->have_posts()) :
+					while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 					<div class="col-sm-4">
 						<div class="product-image-wrapper">
 							<div class="single-products">
@@ -171,15 +182,18 @@
 							</div>
 						</div>
 					</div>
-					<?php endwhile; ?>
-					<?php
-					if(function_exists('wp_paginate')) {
-						wp_paginate();
-					}
-					?>
+					<?php endwhile;
+?>
+<div class="ajax-load hide"><i class="fa fa-refresh fa-spin fa-2x fa-fw margin-bottom"></i></div>
+<?php
+	endif;
+wp_reset_postdata();
+?>
+<?php if(!isset($_POST['ajaxLoad'])) : ?>
 				</div><!--features_items-->
 			</div>
 		</div>
 	</div>
 </section>
 <?php get_footer(); ?>
+<?php endif; ?>

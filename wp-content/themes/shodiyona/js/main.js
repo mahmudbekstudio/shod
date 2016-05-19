@@ -44,4 +44,33 @@ $(document).ready(function(){
 		return false;
 	});
 
+	var scrollXHR;
+	var postsPaged = 1;
+	$(window).scroll(function() {
+		if(!scrollXHR && $(window).scrollTop() + $(window).height() >= $(document).height() - $('#footer').height())
+		{
+			$('.ajax-load').removeClass('hide');
+			postsPaged++;
+
+			scrollXHR = $.ajax({
+				type: 'post',
+				data: {postsPaged: postsPaged, ajaxLoad: true},
+				success: function(data) {
+					if($.trim(data)) {
+						scrollXHR = null;
+						$('.ajax-load').replaceWith(data);
+					} else {
+						$('.ajax-load').remove();
+					}
+				},
+				error: function(xmlHttp, statusTxt, errorThrown) {
+					scrollXHR = null;
+					console.log(statusTxt);
+				},
+				dataType: 'html',
+				async: true
+			});
+		}
+	});
+
 });
