@@ -5,4 +5,5 @@ return array(
 	'Select Region' => 'Выбор регион',
 	'Select City' => 'Выбор город',
 	'Select Dsitrict' => 'Выбор Район',
+	'Filter' => 'Фильтр',
 );

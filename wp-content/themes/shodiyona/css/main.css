@@ -907,7 +907,7 @@ h2.title {
 }
 
 .product-overlay {
-  background:#0F8EC6;
+  background: #f5f5f5;
   top: 0;
   height: 0;
   position: absolute;
@@ -931,60 +931,31 @@ h2.title {
   width: 100%;
 }
 
-.product-overlay .add-to-cart {
-  background:#FDDAEB;
-  border: 0 none;
-  border-radius: 0;
-  color: #FE980F;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  margin-bottom: 25px;
+.category-phone {
+  color: #6d288c;
 }
 
-.product-overlay .add-to-cart:hover {
-  background:#6d288c;
-  color: #FFF;
-}
-
-
-.product-overlay p{
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #FDDAEB;
-}
-
-
-
-.add-to-cart {
+.read-more {
   background:#F5F5ED;
   border: 0 none;
-  border-radius: 0;
   color: #6D288C;
   font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   margin-bottom: 25px;
 }
 
-.add-to-cart:hover {
-  background:#6d288c !important;
+.read-more:hover {
+  background: #6d288c;
   color: #FFF;
   border: 0 none;
-  border-radius: 0;
-  /*color: #FDDAEB;*/
 }
 
 .add-to{
   margin-bottom: 10px;
 }
 
-.add-to-cart i{
+.read-more i{
 	margin-right:5px;
-}
-
-.add-to-cart:hover {
-  background: #FE980F;
-  /*color: #FDDAEB;*/
 }
 
 .choose {
@@ -2724,4 +2695,5 @@ div.wpcf7-validation-errors {
 .ajax-load {
   text-align: center;
   color: #6d288c;
+  clear: both;
 }
