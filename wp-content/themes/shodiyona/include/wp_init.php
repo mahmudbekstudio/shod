@@ -457,6 +457,7 @@ function my_register_fields()
 {
 	include_once('acf/country_select.php');
 	include_once('acf/run_sql.php');
+	include_once('acf/save_google_map.php');
     //include_once('acf/textarea_multilang.php');
     //include_once('acf/wysiwyg_multilang.php');
 }
