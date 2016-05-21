@@ -45,7 +45,7 @@ function my_custom_login_url() {
 }
 add_filter( 'login_headerurl', 'my_custom_login_url', 10, 4 );
 
-/*function remove_menus(){
+function remove_menus(){
 	global $menu, $submenu;
 	$submenu_restricted=array('options-general.php'=>array('options-discussion.php'), 'edit.php'=>array('edit-tags.php?taxonomy=post_tag'));
 	//$submenu
@@ -60,7 +60,7 @@ add_filter( 'login_headerurl', 'my_custom_login_url', 10, 4 );
 			}
 		}
 	}
-	$restricted = array(__('Dashboard'), __('Media'), __('Links'), __('Comments'), __('Tools'), __('Posts'));
+	$restricted = array(__('Dashboard'), __('Media'), __('Comments'));
 	end ($menu);
 	while (prev($menu)){
 		$value = explode(' ', $menu[key($menu)][0]);
@@ -68,7 +68,7 @@ add_filter( 'login_headerurl', 'my_custom_login_url', 10, 4 );
 	}
 }
 add_action('admin_menu', 'remove_menus');
-remove_action('wp_head', 'wp_generator');*/
+remove_action('wp_head', 'wp_generator');
 
 /*function example_remove_dashboard_widgets() {
 	global $wp_meta_boxes;
