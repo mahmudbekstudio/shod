@@ -168,7 +168,14 @@ if($the_query->have_posts()) :
 									<p><?php echo get_field('address'); ?></p>
 									<a href="<?php the_permalink(); ?>" class="btn btn-default read-more"><i class="fa fa-arrow-circle-right"></i><?php Language::_e('Read more') ?></a>
 								</div>
-								<div class="product-overlay" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=7%20Shifokor%20Str.,%20%D0%A2%D0%BE%D1%88%D0%BA%D0%B5%D0%BD%D1%82,%20%D0%A3%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD&zoom=14&size=256x226&maptype=roadmap&markers=color:red|label:R|41.359176507582454,69.18603658676147&key=AIzaSyCtjMo5SZD5YHfCgwElAiwd40-cBgFCNOI'); background-repeat: no-repeat;">
+								<?php
+								$map = get_field('google_map');
+								$map_url = '';
+								if(!empty($map)) {
+									$map_url = "background-image: url('" . $map['url'] . "');";
+								}
+								?>
+								<div class="product-overlay" style="<?php echo $map_url ?>">
 									<div class="overlay-content">
 										<p class="category-phone"><?php
 											$phone = get_field('phone');
