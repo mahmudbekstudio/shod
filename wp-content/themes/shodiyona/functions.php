@@ -18,27 +18,6 @@ $error=array();
 $message=array();
 $info_arr=array();
 
-/*if(isset($_POST['savegooglemap']) && isset($_POST['postID'])) {
-	$result = array();
-	if(is_user_logged_in() && current_user_can( 'edit_users' )) {
-		$savegooglemap = trim($_POST['savegooglemap']);
-		$postID = trim($_POST['postID']);
-		$mapURL = THEME_PATH . '/maps/map_' . $postID . '.png';
-
-		if(file_exists($mapURL)) {
-			unlink($mapURL);
-		}
-
-		//$contents=file_get_contents($savegooglemap);
-		//file_put_contents($mapURL, $contents);
-
-		$result['message'] = 'created';
-		$result['image'] = get_bloginfo( 'template_directory' ) . '/maps/map_' . $postID . '.png';
-	}
-	echo json_encode($result);
-	exit;
-}*/
-
 if(isset($_POST['runsqlfile'])) {
 	$result = array();
 	if(is_user_logged_in() && current_user_can( 'edit_users' )) {
