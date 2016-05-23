@@ -18,7 +18,7 @@ $error=array();
 $message=array();
 $info_arr=array();
 
-if(isset($_POST['savegooglemap']) && isset($_POST['postID'])) {
+/*if(isset($_POST['savegooglemap']) && isset($_POST['postID'])) {
 	$result = array();
 	if(is_user_logged_in() && current_user_can( 'edit_users' )) {
 		$savegooglemap = trim($_POST['savegooglemap']);
@@ -37,7 +37,7 @@ if(isset($_POST['savegooglemap']) && isset($_POST['postID'])) {
 	}
 	echo json_encode($result);
 	exit;
-}
+}*/
 
 if(isset($_POST['runsqlfile'])) {
 	$result = array();
