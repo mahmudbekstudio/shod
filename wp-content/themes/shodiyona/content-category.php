@@ -161,9 +161,13 @@ if($the_query->have_posts()) :
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail('category_thumb'); ?>
+									<div class="thumbnail-wrapper">
+									<?php if ( has_post_thumbnail() ): ?>
+										<?php the_post_thumbnail('category_thumb'); ?>
+									<?php else: ?>
+										<img src="<?php bloginfo( 'template_directory' ); ?>/images/no-thumbnail.jpg" />
 									<?php endif; ?>
+									</div>
 									<h2><?php the_title(); ?></h2>
 									<p><?php echo get_field('address'); ?></p>
 									<a href="<?php the_permalink(); ?>" class="btn btn-default read-more"><i class="fa fa-arrow-circle-right"></i><?php Language::_e('Read more') ?></a>
