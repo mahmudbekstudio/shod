@@ -99,6 +99,14 @@
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/materialmenu.jquery.min.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.cookie.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/main.js"></script>
+<?php
+global $includeFiles;
+foreach($includeFiles['js'] as $jsFile) {
+	?>
+	<script src="<?php bloginfo( 'template_directory' ); ?>/<?php echo $jsFile; ?>"></script>
+	<?php
+}
+?>
 <?php wp_footer(); ?>
 </body>
 </html>

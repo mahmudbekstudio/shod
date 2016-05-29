@@ -2706,3 +2706,29 @@ div.wpcf7-validation-errors {
   color: #6d288c;
   clear: both;
 }
+
+fieldset.category-filter-block {
+  border: 2px solid #f5f5f5;
+  padding: 0px 15px 3px;
+  margin: 0;
+}
+
+fieldset.category-filter-block legend {
+  border: 0;
+  margin: 0;
+  width: auto;
+  font-size: 18px;
+  color: #6d288c;
+}
+
+.category-filter-item {
+  margin: 13px 0;
+}
+
+.category-filter-item-label {
+  font-weight: bold;
+}
+
+.category-filter-wrapper .search-choice-disabled {
+  display: none;
+}

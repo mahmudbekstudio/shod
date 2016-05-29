@@ -28,6 +28,14 @@
 	<!--[if lt IE 9]>
 	<script src="<?php bloginfo( 'template_directory' ); ?>/js/html5shiv.js"></script>
 	<![endif]-->
+	<?php
+	global $includeFiles;
+	foreach($includeFiles['css'] as $cssFile) {
+		?>
+		<link href="<?php bloginfo( 'template_directory' ); ?>/<?php echo $cssFile; ?>" rel="stylesheet">
+	<?php
+	}
+	?>
 	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo( 'template_directory' ); ?>/images/ico/apple-touch-icon-144-precomposed.png">

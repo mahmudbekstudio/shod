@@ -1,0 +1,13 @@
+.select-country-city,
+.select-country-district {
+	opacity: 0;
+}
+
+.chosen-container-active .chosen-choices {
+	border-color: #6d288c;
+}
+
+.chosen-container .chosen-results li.highlighted {
+	background-color: #6d288c;
+	background-image: linear-gradient(#ea4397 20%, #6d288c 90%);
+}

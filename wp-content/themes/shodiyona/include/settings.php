@@ -1,4 +1,7 @@
 <?php
+global $includeFiles;
+$includeFiles = array('js' => array(), 'css' => array());
+
 global $currencyCode, $currencyList;
 $currencyCode = 'uzs';
 $currencyList = get_field('currency', 'option');
@@ -212,4 +215,15 @@ $countryList = array(
 		)
 	),
 	'russian' => array()
+);
+
+global $filters;
+$filters = array(
+	'select_country',
+
+	//restaurants
+	'type_of_restaurant',
+	'datetimeevent',
+	'types_of_services',
+	'number_of_people',
 );

@@ -1,13 +1,6 @@
 <?php
 function my_custom_login_logo(){
-	echo '<style type="text/css">
-	.login h1 a {
-		background-image:url('.get_bloginfo('template_directory').'/images/home/logo.png) !important;
-		background-size: 137px 60px;
-		width: 137px;
-		height: 60px;
-		}
-	</style>';
+	echo '<style type="text/css">.login h1 a {background-image:url(' . get_bloginfo('template_directory') . '/images/home/logo.png) !important;	background-size: 137px 60px; width: 137px; height: 60px;}</style>';
 }
 add_action('login_head', 'my_custom_login_logo');
 add_filter('login_errors',create_function('$a', "return null;"));
@@ -489,9 +482,20 @@ function qtranslate_edit_taxonomies(){
 //add_action('admin_init', 'qtranslate_edit_taxonomies');
 
 function save_post_meta( $post_id, $post, $update ) {
-	if($update && isset($_POST['select_country'])) {
-		foreach($_POST['select_country'] as $key => $val) {
-			update_post_meta($post_id, 'select_country_' . $key, $val);
+	global $wpdb;
+	if($update) {
+
+		if(isset($_POST['select_country'])) {
+			$_POST['select_country']['country'] = trim($_POST['select_country']['country']);
+			$_POST['select_country']['region'] = $_POST['select_country']['country'] . ',' . trim($_POST['select_country']['region']);
+			$_POST['select_country']['city'] = $_POST['select_country']['region'] . ',' . trim($_POST['select_country']['city']);
+			$_POST['select_country']['district'] = $_POST['select_country']['city'] . ',' . trim($_POST['select_country']['district']);
+
+			$wpdb->delete( $wpdb->prefix . 'filter', array('post_ID' => $post_id), array('%d') );
+
+			foreach($_POST['select_country'] as $key => $val) {
+				$wpdb->insert($wpdb->prefix . 'filter', array('post_ID' => $post_id, 'key' => 'select_country_' . $key, 'val' => $val), array('%d', '%s', '%s'));
+			}
 		}
 	}
 }

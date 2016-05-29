@@ -60,7 +60,7 @@ $(document).ready(function(){
 						scrollXHR = null;
 						$('.ajax-load').replaceWith(data);
 					} else {
-						$('.ajax-load').remove();
+						$('.ajax-load').addClass('hide');
 					}
 				},
 				error: function(xmlHttp, statusTxt, errorThrown) {
