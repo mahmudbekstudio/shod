@@ -132,6 +132,7 @@ add_action( 'widgets_init', 'mg_widgets_init' );
 //images
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'category_thumb', 268, 249, true );
+add_image_size( 'category_thumb_hover', 482, 448, true );
 //add_image_size( 'medium_thumb', 220, 200, false );
 
 function create_post_type() {
@@ -494,7 +495,7 @@ function save_post_meta( $post_id, $post, $update ) {
 			$wpdb->delete( $wpdb->prefix . 'filter', array('post_ID' => $post_id), array('%d') );
 
 			foreach($_POST['select_country'] as $key => $val) {
-				$wpdb->insert($wpdb->prefix . 'filter', array('post_ID' => $post_id, 'key' => 'select_country_' . $key, 'val' => $val), array('%d', '%s', '%s'));
+				$wpdb->insert($wpdb->prefix . 'filter', array('post_ID' => $post_id, 'meta_key' => 'select_country_' . $key, 'meta_val' => $val), array('%d', '%s', '%s'));
 			}
 		}
 	}

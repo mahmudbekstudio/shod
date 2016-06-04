@@ -39,6 +39,10 @@ $(document).ready(function(){
 		return false;
 	});
 
+	if(window.history.length == 1) {
+		$('.back-prev-page').addClass('hide');
+	}
+
 	$('.back-prev-page').on('click', function() {
 		window.history.back();
 		return false;

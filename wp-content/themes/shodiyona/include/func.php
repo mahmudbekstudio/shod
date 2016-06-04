@@ -824,7 +824,25 @@ function render_pagination($found_posts = 0, $max_num_pages = 0, $paged = 0, $ge
     <?php endif;
 }
 
-function show_start() {	if(!isset($_COOKIE['start_lang'])) {		return true;
-	} else {		return false;
+function show_start() {
+	if(!isset($_COOKIE['start_lang'])) {
+		return true;
+	} else {
+		return false;
 	}
+}
+
+function getIdRestaurantsInThisCity($id, $limit = 5) {
+	global $wpdb;
+
+	$meta_val = $wpdb->get_var( "SELECT `meta_val` FROM `" . $wpdb->prefix . "filter` WHERE `post_ID`='" . $id . "' AND `meta_key`='select_country_city'" );
+	$result = $wpdb->get_results("SELECT `post_ID` FROM `" . $wpdb->prefix . "filter` WHERE `post_ID` != '" . $id . "' AND `meta_val` = '" . $meta_val . "' AND `meta_key` = 'select_country_city' ORDER BY RAND() LIMIT " . $limit, 'ARRAY_A');
+
+	$ids = array();
+	$resultCount = count($result);
+	for($i = 0; $i < $resultCount; $i++) {
+		$ids[] = $result[$i]['post_ID'];
+	}
+
+	return $ids;
 }

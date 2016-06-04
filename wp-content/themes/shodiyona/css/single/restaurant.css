@@ -1,0 +1,22 @@
+.left-side-image img {
+	width: 100%;
+}
+
+.left-side-item {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.left-side-item:hover .left-side-overlay {
+	display: block;
+}
+
+.left-side-overlay {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-position: top center;
+}

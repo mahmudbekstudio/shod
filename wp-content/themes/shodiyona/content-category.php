@@ -262,7 +262,7 @@ if(isset($_POST['filter'])) {
 				$key = $row[0];
 				$val = $row[1];
 				$sqlWhere .= $sqlWhere ? ' OR ' : '';
-				$sqlWhere .= "(`key`='" . $key . "' AND `val`='" . $val . "')";
+				$sqlWhere .= "(`meta_key`='" . $key . "' AND `meta_val`='" . $val . "')";
 			}
 			$idsResults = $wpdb->get_results($sql . $sqlWhere . " GROUP BY `post_ID`", 'ARRAY_A');
 			$ids = array();
@@ -283,7 +283,15 @@ if($the_query->have_posts()) :
 								<div class="productinfo text-center">
 									<div class="thumbnail-wrapper">
 									<?php if ( has_post_thumbnail() ): ?>
-										<?php the_post_thumbnail('category_thumb'); ?>
+										<?php
+										if ( has_post_thumbnail() ) {
+											$imgSrc = wp_get_attachment_image_src( get_post_thumbnail_id(), 'category_thumb' );
+											$imgSrc = $imgSrc[0];
+										} else {
+											$imgSrc = get_bloginfo( 'template_directory' ) . '/images/no-thumbnail.jpg';
+										}
+										?>
+										<img src="<?php echo $imgSrc; ?>" />
 									<?php else: ?>
 										<img src="<?php bloginfo( 'template_directory' ); ?>/images/no-thumbnail.jpg" />
 									<?php endif; ?>
@@ -301,6 +309,7 @@ if($the_query->have_posts()) :
 								?>
 								<div class="product-overlay" style="<?php echo $map_url ?>">
 									<div class="overlay-content">
+										<h2><?php the_title(); ?></h2>
 										<p class="category-phone"><?php
 											$phone = get_field('phone');
 											echo $phone[0]['mobile']

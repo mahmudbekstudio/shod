@@ -11,3 +11,11 @@
 	background-color: #6d288c;
 	background-image: linear-gradient(#ea4397 20%, #6d288c 90%);
 }
+
+.left-side-item .left-side-overlay {
+	display: block;
+}
+
+.left-side-item:hover .left-side-overlay {
+	display: block;
+}
