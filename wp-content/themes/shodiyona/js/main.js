@@ -77,4 +77,21 @@ $(document).ready(function(){
 		}
 	});
 
+	$(document).on('click', '.open-google-popup', function() {
+		var link = $(this).attr('href');
+		$.fancybox({
+			'width'             : '75%',
+			'maxHeight'            : '75%',
+			'autoScale'         : false,
+			'transitionIn'      : 'none',
+			'transitionOut'     : 'none',
+			'type'              : 'iframe',
+			href: link,
+			iframe     : {
+				preload : false // this will prevent to place map off center
+			}
+		});
+		return false;
+	});
+
 });

@@ -6,4 +6,7 @@ return array(
 	'Select City' => 'Выбор город',
 	'Select Dsitrict' => 'Выбор Район',
 	'Filter' => 'Фильтр',
+	'from' => 'от',
+	'to' => 'до',
+	'weekends' => 'выходные',
 );

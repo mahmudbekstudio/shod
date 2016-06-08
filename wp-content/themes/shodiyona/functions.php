@@ -18,6 +18,11 @@ $error=array();
 $message=array();
 $info_arr=array();
 
+if(isset($_GET['map']) && isset($_GET['lat']) && isset($_GET['lng'])) {
+	include_template('google_map', array('address' => $_GET['map'], 'lat' => $_GET['lat'], 'lng' => $_GET['lng']));
+	exit;
+}
+
 if(isset($_POST['runsqlfile'])) {
 	$result = array();
 	if(is_user_logged_in() && current_user_can( 'edit_users' )) {

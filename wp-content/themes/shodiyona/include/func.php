@@ -516,7 +516,7 @@ function include_template($template_name, $vars=array())
 			$$var=$val;
 		}
 	}
-	include(THEME_TEMPLATE_PATH.'/'.$template_name.'.php');
+	include(THEME_PATH.'/'.$template_name.'.php');
 }
 function is_index()
 {

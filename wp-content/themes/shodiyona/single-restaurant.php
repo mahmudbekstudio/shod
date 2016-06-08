@@ -35,7 +35,7 @@ get_header(); ?>
 							}
 							?>
 							<div class="left-side-item">
-								<a class="left-side-overlay" href="#" style="background-image: url('<?php echo $imgSrcHover; ?>')"></a>
+								<a class="left-side-overlay" href="<?php the_permalink(); ?>" style="background-image: url('<?php echo $imgSrcHover; ?>')"></a>
 								<div class="left-side-image">
 									<img src="<?php echo $imgSrc; ?>" />
 								</div>
@@ -53,40 +53,212 @@ get_header(); ?>
 			</div>
 
 			<div class="col-sm-9 padding-right">
+				<?php while ( have_posts() ) : the_post(); ?>
 				<div class="product-details"><!--product-details-->
 					<div class="col-sm-5">
 						<div class="view-product">
-							<!--img src="images/product-details/1.jpg" alt="" /-->
+							<?php
+							if ( has_post_thumbnail() ) {
+								$imgSrc = wp_get_attachment_image_src( get_post_thumbnail_id(), 'category_thumb_main' );
+								$imgSrc = $imgSrc[0];
+							} else {
+								$imgSrc = get_bloginfo( 'template_directory' ) . '/images/no-thumbnail-main.jpg';
+							}
+							?>
+							<img src="<?php echo $imgSrc; ?>" alt="" />
 						</div>
-						<!--div class="swiper-container product-detail">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide"><a href="">
-										<img src="images/product-details/similar1.jpg" alt=""></a>
-									<a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-									<a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-								</div>
-								<div class="swiper-slide">
-									<a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-									<a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-									<a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-								</div>
-								<div class="swiper-slide">
-									<a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-									<a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-									<a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-								</div>
-							</div>
-							<div class="swiper-pagination"></div>
-							<div class="swiper-button-next"></div>
-							<div class="swiper-button-prev"></div>
-						</div-->
-
 					</div>
 					<div class="col-sm-7">
 						<div class="product-information"><!--/product-information-->
-							<!--img src="images/product-details/new.jpg" class="newarrival" alt="" /-->
-							<h2>Anne Klein Sleeveless Colorblock Scuba</h2>
-							<p>Web ID: 1089772</p>
+							<?php /*<img src="<?php bloginfo( 'template_directory' ) ?>/images/product-details/new.jpg" class="newarrival" alt="" />*/ ?>
+							<h2><?php the_title(); ?></h2>
+							<?php
+							$region = json_decode(get_field('region'));
+							$address = get_field('address');
+							?>
+							<p><strong><?php Language::_e('Address') ?>:</strong>
+								<?php Language::_e('City'); echo ' ' . Language::__($region->city) ?>
+								<?php
+								if(isset($region->district) && $region->district != '') {
+									echo ', ';
+									Language::_e('District');
+									echo ' ' . Language::__($region->district);
+								}
+
+								if($address != '') {
+									echo ', ' . $address;
+								}
+								?>
+							</p>
+							<?php
+							$phone = get_field('phone');
+							if(!empty($phone)) {
+								?>
+								<p><strong><?php Language::_e('Phone') ?>:</strong>
+									<?php
+									$phoneCount = count($phone);
+									for($i = 0; $i < $phoneCount; $i++) {
+										if($i > 0) {
+											echo ', ';
+										}
+										echo $phone[$i]['mobile'];
+									}
+									?>
+								</p>
+								<?php
+							}
+							?>
+							<?php
+							$email = get_field('e-mail');
+							if(!empty($email)) {
+								?>
+								<p><strong><?php Language::_e('E-mail') ?>:</strong> <a href="mailto: <?php echo $email; ?>"><?php echo $email; ?></a></p>
+								<?php
+							}
+							?>
+							<?php
+							$website = get_field('website');
+							if(!empty($website)) {
+								?>
+								<p><strong><?php Language::_e('Website') ?>:</strong> <a href="http://www.<?php echo $website; ?>" target="_blank">http://www.<?php echo $website; ?></a></p>
+								<?php
+							}
+							?>
+							<?php
+							$contact_person = get_field('contact_person');
+							if(!empty($contact_person)) {
+								?>
+								<p><strong><?php Language::_e('Contact person') ?>:</strong> <?php echo $contact_person; ?></p>
+								<?php
+							}
+							?>
+							<p> <strong><?php Language::_e('Working time') ?>:</strong>
+							<?php
+							$working_time = get_field('working_time');
+							$langCode = Language::getLang();
+							if($langCode == 'uz') {
+								echo $working_time[0]['work_time_start'] . ' ';
+								Language::_e('from');
+								echo ' ' . $working_time[0]['work_time_end'] . ' ';
+								Language::_e('to');
+								echo ', ';
+								Language::_e('weekends');
+								echo ' ';
+								Language::_e($working_time[0]['weekends']);
+							} else {
+								Language::_e('from');
+								echo ' ' . $working_time[0]['work_time_start'] . ' ';
+								Language::_e('to');
+								echo ' ' . $working_time[0]['work_time_end'] . ', ';
+								Language::_e('weekends');
+								echo ' ';
+								Language::_e($working_time[0]['weekends']);
+							}
+							?>
+							</p>
+
+							<?php
+							$payment = get_field('payment');
+							if(!empty($payment)) {
+								?>
+							<p> <strong><?php Language::_e('Payment') ?>:</strong>
+								<?php
+								$isFirst = true;
+								foreach($payment as $val) {
+									if($isFirst) {
+										$isFirst = false;
+									} else {
+										echo ', ';
+									}
+
+									Language::_e($val);
+								}
+								?>
+							</p>
+								<?php
+							}
+
+							$type_of_restaurant = get_field('type_of_restaurant');
+							if(!empty($type_of_restaurant)) {
+								?>
+								<p> <strong><?php Language::_e('Type Of Restaurant') ?>:</strong>
+									<?php
+									$isFirst = true;
+									foreach($type_of_restaurant as $val) {
+										if($isFirst) {
+											$isFirst = false;
+										} else {
+											echo ', ';
+										}
+
+										Language::_e($val);
+									}
+									?>
+								</p>
+								<?php
+							}
+
+							$types_of_services = get_field('types_of_services');
+							if(!empty($types_of_services)) {
+								?>
+								<p> <strong><?php Language::_e('Type Of Services') ?>:</strong>
+									<?php
+									$isFirst = true;
+									foreach($types_of_services as $val) {
+										if($isFirst) {
+											$isFirst = false;
+										} else {
+											echo ', ';
+										}
+
+										Language::_e($val);
+									}
+									?>
+								</p>
+								<?php
+							}
+
+							$number_of_people = get_field('number_of_people');
+							if(!empty($number_of_people)) {
+								?>
+								<p> <strong><?php Language::_e('Number Of People') ?>:</strong>
+									<?php
+									echo $number_of_people;
+									?>
+								</p>
+								<?php
+							}
+
+							$contact_person = get_field('contact_person');
+							if(!empty($contact_person)) {
+								?>
+								<p> <strong><?php Language::_e('Contact Person') ?>:</strong>
+									<?php
+									echo $contact_person;
+									?>
+								</p>
+								<?php
+							}
+
+							$map = get_field('google_map');
+							$map_url = '';
+							if(!empty($map)) {
+								$map_url = $map['url'];
+							}
+							if(!empty($map_url)) {
+								$map = get_field('map');
+
+								// AIzaSyB4LmNbml6DsnFm5G0jK2-v_-qPCZxPNUg
+								//$map['address']
+								//$map['lat']
+								//$map['lng']
+								?>
+								<p> <strong><?php Language::_e('Map') ?>:</strong>
+									<a class="open-google-popup" href="?map=<?php echo $map['address'] . '&lat=' . $map['lat'] . '&lng=' . $map['lng'] ?>"><img src="<?php echo $map_url; ?>" /></a>
+								</p>
+								<?php
+							}
+							?>
 							<!--img src="images/product-details/rating.png" alt="" /-->
 							<p><b>Availability:</b> In Stock</p>
 							<p><b>Condition:</b> New</p>
@@ -285,7 +457,7 @@ get_header(); ?>
 
 					</div>
 				</div><!--/category-tab-->
-
+				<?php endwhile; ?>
 			</div>
 		</div>
 	</div>

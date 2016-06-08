@@ -25,6 +25,7 @@
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/animate.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/main.css" rel="stylesheet">
 	<link href="<?php bloginfo( 'template_directory' ); ?>/css/responsive.css" rel="stylesheet">
+	<link href="<?php bloginfo( 'template_directory' ); ?>/css/fancybox/jquery.fancybox.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="<?php bloginfo( 'template_directory' ); ?>/js/html5shiv.js"></script>
 	<![endif]-->

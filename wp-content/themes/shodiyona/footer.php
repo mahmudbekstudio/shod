@@ -98,6 +98,7 @@
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/price-range.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/materialmenu.jquery.min.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.cookie.js"></script>
+<script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.fancybox.pack.js"></script>
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/main.js"></script>
 <?php
 global $includeFiles;

@@ -6,4 +6,7 @@ return array(
 	'Select City' => 'Shaxarni tanlash',
 	'Select Dsitrict' => 'Rayoni tanlash',
 	'Filter' => 'Filtr',
+	'from' => 'dan',
+	'to' => 'gacha',
+	'weekends' => 'dam olish kunlari',
 );
