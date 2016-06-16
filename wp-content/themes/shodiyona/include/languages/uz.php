@@ -9,6 +9,7 @@ return array(
 	'from' => 'dan',
 	'to' => 'gacha',
 	'weekends' => 'dam olish kunlari',
+	'sum' => 'so`m',
 	'tashkent region' => 'Toshkent viloyati',
 			'ahangaran' =>  'Ohangaron',
 			'akkurgan' =>  "Oqqo'rg'on",

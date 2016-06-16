@@ -9,6 +9,7 @@ return array(
 	'from' => 'от',
 	'to' => 'до',
 	'weekends' => 'выходные',
+	'sum' => 'сум',
 //shaharlar
 	'tashkent region' => 'Ташкентская область',
 				'ahangaran' => 'Ахангаран',

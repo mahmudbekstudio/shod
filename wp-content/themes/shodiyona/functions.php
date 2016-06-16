@@ -6,12 +6,12 @@ define('BASE_PATH', realpath(THEME_PATH . '../../../../'));
 
 require(INCLUDE_PATH . '/wp_init.php');
 require(INCLUDE_PATH . '/func.php');
-require(INCLUDE_PATH . '/settings.php');
 require(INCLUDE_PATH . '/Language.php');
-
 
 global $q_config;
 Language::init(array('language' => $q_config['language'], 'enabled_languages' => $q_config['enabled_languages'], 'language_name' => $q_config['$q_config']));
+
+require(INCLUDE_PATH . '/settings.php');
 
 session_start();
 $error=array();

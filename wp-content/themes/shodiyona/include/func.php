@@ -846,3 +846,9 @@ function getIdRestaurantsInThisCity($id, $limit = 5) {
 
 	return $ids;
 }
+
+function exchangeCurrency($price) {
+	global $currencyItem;
+	$price = number_format($price / $currencyItem['rate'], 2, ',', ' ');
+	return str_replace('%s%', $price, $currencyItem['layout']);
+}

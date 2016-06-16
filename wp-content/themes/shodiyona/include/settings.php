@@ -2,9 +2,13 @@
 global $includeFiles;
 $includeFiles = array('js' => array(), 'css' => array());
 
-global $currencyCode, $currencyList;
+global $currencyCode, $currencyList, $currencyItem;
 $currencyCode = 'uzs';
-$currencyList = get_field('currency', 'option');
+$currencyList = $currencyList = array(
+	array('title' => 'UZS', 'code' => 'uzs', 'layout' => '%s% ' . Language::__('sum'), 'rate' => 1),
+	array('title' => 'USD', 'code' => 'usd', 'layout' => '$%s%', 'rate' => 2933.99)
+);
+	//get_field('currency', 'option');
 if(isset($_COOKIE['currencyCode'])) {
 	$isExist = false;
 	foreach($currencyList as $key => $val) {
@@ -23,6 +27,13 @@ if(isset($_COOKIE['currencyCode'])) {
 
 if(!isset($_COOKIE['currencyCode'])) {
 	setcookie("currencyCode", $currencyCode, time()+(60*60*24*30), '/');
+}
+
+for($i = 0; $i < count($currencyList); $i++) {
+	if($currencyList[$i]['code'] == $currencyCode) {
+		$currencyItem = $currencyList[$i];
+		break;
+	}
 }
 
 global $currentUrl;

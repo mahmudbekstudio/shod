@@ -1,5 +1,8 @@
 <?php
 global $includeFiles;
+$includeFiles['css'][] = 'css/single-category.css';
+$includeFiles['js'][] = 'js/single-category.js';
+
 $includeFiles['css'][] = 'css/single/restaurant.css';
 $includeFiles['js'][] = 'js/single/restaurant.js';
 get_header(); ?>
@@ -247,11 +250,6 @@ get_header(); ?>
 							}
 							if(!empty($map_url)) {
 								$map = get_field('map');
-
-								// AIzaSyB4LmNbml6DsnFm5G0jK2-v_-qPCZxPNUg
-								//$map['address']
-								//$map['lat']
-								//$map['lng']
 								?>
 								<p> <strong><?php Language::_e('Map') ?>:</strong>
 									<a class="open-google-popup" href="?map=<?php echo $map['address'] . '&lat=' . $map['lat'] . '&lng=' . $map['lng'] ?>"><img src="<?php echo $map_url; ?>" /></a>
@@ -259,199 +257,111 @@ get_header(); ?>
 								<?php
 							}
 							?>
-							<!--img src="images/product-details/rating.png" alt="" /-->
-							<p><b>Availability:</b> In Stock</p>
-							<p><b>Condition:</b> New</p>
-							<p><b>Brand:</b> E-SHOPPER</p>
-							<!--a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a-->
+							<?php
+							$social = get_field('social');
+							if(!empty($social)) :
+							?>
+							<div class="single-social-network">
+								<?php foreach($social as $val) : ?>
+								<a href="<?php echo $val['link'] ?>" target="_blank" class="icon icon-<?php echo $val['socials'] ?>"></a>
+								<?php endforeach; ?>
+							</div>
+							<?php endif; ?>
+							<!--a href=""><img src="<?php bloginfo( 'template_directory' ); ?>/images/product-details/share.png" class="share img-responsive"  alt="" /></a-->
 						</div><!--/product-information-->
 					</div>
 				</div><!--/product-details-->
 
+					<?php
+					//category_thumb
+					$gallery = get_field('gallery');
+					//print_r($gallery);exit;
+					if(!empty($gallery)) :
+					?>
+					<div class="single-gallery-container">
+						<div class="swiper-wrapper">
+							<?php foreach($gallery as $item) : ?>
+							<div class="swiper-slide"><a href="<?php echo $item['sizes']['large'] ?>" rel="single-gallery" title="<?php echo $item['title'] ?>" class="single-gallery-slide-image"><img src="<?php echo $item['sizes']['category_thumb'] ?>" alt="<?php echo $item['alt'] ?>"></a></div>
+							<?php endforeach; ?>
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination"></div>
+					</div>
+					<?php endif; ?>
+
 				<div class="category-tab shop-details-tab"><!--category-tab-->
 					<div class="col-sm-12">
 						<ul class="nav nav-tabs">
-							<li><a href="#details" data-toggle="tab">Details</a></li>
-							<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
-							<li><a href="#tag" data-toggle="tab">Tag</a></li>
-							<li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+							<li class="active"><a href="#details" data-toggle="tab"><?php Language::_e('Details') ?></a></li>
+							<li><a href="#menu" data-toggle="tab"><?php Language::_e('Menu') ?></a></li>
+							<li><a href="#reviews" data-toggle="tab"><?php Language::_e('Reviews') ?></a></li>
+							<li><a href="#dateevent" data-toggle="tab"><?php Language::_e('Date event') ?></a></li>
 						</ul>
 					</div>
 					<div class="tab-content">
-						<div class="tab-pane fade" id="details" >
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery1.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery2.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery3.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery4.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
+						<div class="tab-pane fade active in" id="details" >
+							<div class="col-sm-12 tab-content">
+								<?php the_content(); ?>
 							</div>
 						</div>
 
-						<div class="tab-pane fade" id="companyprofile" >
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery1.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
+						<div class="tab-pane fade" id="menu" >
+							<div class="col-sm-12 tab-content">
+								<?php
+								$foodMenu = get_field('food_menu');
+								?>
+								<div class="menu-list-tab"><!--category-tab-->
+									<div class="col-sm-12">
+										<ul class="nav nav-tabs">
+											<?php
+											foreach($foodMenu as $key => $val) :
+											?>
+											<li class="<?php echo $key == 0 ? 'active' : ''; ?>"><a href="#menulist<?php echo $key ?>" data-toggle="tab"><?php echo $val['menu_type'] ?></a></li>
+											<?php endforeach; ?>
+										</ul>
 									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery3.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+									<div class="tab-content">
+										<?php
+										foreach($foodMenu as $key => $val) :
+										?>
+										<div class="tab-pane fade<?php echo $key == 0 ? ' active in' : ''; ?>" id="menulist<?php echo $key ?>" >
+											<div class="col-sm-12 tab-content">
+												<ul>
+												<?php foreach($val['menu'] as $menuItem) : ?>
+													<li>
+
+														<div class="menu-item-price pull-right"><?php if(!empty($menuItem['price'])) {
+																echo exchangeCurrency($menuItem['price']);
+															} else {
+																echo '---';
+															}
+															?></div>
+
+														<div class="menu-item-detail">
+															<div class="menu-item-detail-name"><?php echo $menuItem['name']; ?></div>
+															<div class="menu-item-detail-description"><?php echo $menuItem['description']; ?></div>
+														</div>
+													</li>
+												<?php endforeach; ?>
+												</ul>
+											</div>
 										</div>
+										<?php endforeach; ?>
+
 									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/gallery2.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery4.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
+								</div><!--/category-tab-->
 							</div>
 						</div>
 
-						<div class="tab-pane fade" id="tag" >
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery1.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery2.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery3.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<!--img src="images/home/gallery4.jpg" alt="" /-->
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-										</div>
-									</div>
-								</div>
+						<div class="tab-pane fade" id="reviews" >
+							<div class="col-sm-12 tab-content">
+								111
 							</div>
 						</div>
 
-						<div class="tab-pane fade active in" id="reviews" >
-							<div class="col-sm-12">
-								<ul>
-									<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-									<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-									<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-								</ul>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<p><b>Write Your Review</b></p>
-
-								<form action="#">
-										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
-										</span>
-									<textarea name="" ></textarea>
-									<b>Rating: </b> <!--img src="images/product-details/rating.png" alt="" /-->
-									<button type="button" class="btn btn-default pull-right">
-										Submit
-									</button>
-								</form>
+						<div class="tab-pane fad" id="dateevent" >
+							<div class="col-sm-12 tab-content">
+								111
 							</div>
 						</div>
 
