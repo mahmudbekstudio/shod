@@ -61,7 +61,7 @@ if(is_front_page() || is_home()) {
 				<div class="col-sm-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="#"><i class="fa fa-phone"></i> <?php the_field('phone', 'option') ?></a></li>
+							<li><a href="tel:<?php the_field('phone', 'option') ?>"><i class="fa fa-phone"></i> <?php the_field('phone', 'option') ?></a></li>
 							<li><a href="mailto: <?php $email = get_field('e-mail', 'option'); echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
 						</ul>
 					</div>
@@ -76,7 +76,7 @@ if(is_front_page() || is_home()) {
 							$topLinks = get_field('top_links', 'option');
 							$topLinksLength = count($topLinks);
 							for($i = 0; $i < $topLinksLength; $i++) {
-								echo '<li><a href="' . $topLinks[$i]['link'] . '" title="' . $topLinks[$i]['title'] . '"><i class="fa fa-' . $topLinks[$i]['icon'] . '"></i></a></li>';
+								echo '<li><a href="' . $topLinks[$i]['link'] . '" title="' . $topLinks[$i]['title'] . '" target="_blank"><i class="fa fa-' . $topLinks[$i]['icon'] . '"></i></a></li>';
 							}
 							?>
 						</ul>
@@ -141,7 +141,7 @@ if(is_front_page() || is_home()) {
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-8">
+				<?php /*<div class="col-sm-8">
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
 							<li><a href="#"><i class="fa fa-user"></i> Аккаунт</a></li>
@@ -151,7 +151,7 @@ if(is_front_page() || is_home()) {
 							<!--li><a href="login.html"><i class="fa fa-lock"></i> Логин</a></li-->
 						</ul>
 					</div>
-				</div>
+				</div>*/ ?>
 			</div>
 		</div>
 	</div><!--/header-middle-->

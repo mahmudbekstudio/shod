@@ -5,7 +5,7 @@
 			<div class="col-sm-3">
 				<div class="left-sidebar">
 					<div class="shipping text-center"><!--shipping-->
-						<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/shipping.jpg" alt="" />
+						<?php /*<img src="<?php bloginfo( 'template_directory' ); ?>/images/home/shipping.jpg" alt="" />*/ ?>
 					</div><!--/shipping-->
 				</div>
 			</div>

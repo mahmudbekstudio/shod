@@ -4,7 +4,7 @@ $includeFiles = array('js' => array(), 'css' => array());
 
 global $currencyCode, $currencyList, $currencyItem;
 $currencyCode = 'uzs';
-$currencyList = $currencyList = array(
+$currencyList = array(
 	array('title' => 'UZS', 'code' => 'uzs', 'layout' => '%s% ' . Language::__('sum'), 'rate' => 1),
 	array('title' => 'USD', 'code' => 'usd', 'layout' => '$%s%', 'rate' => 2933.99)
 );
@@ -35,6 +35,15 @@ for($i = 0; $i < count($currencyList); $i++) {
 		break;
 	}
 }
+
+global $commentRates;
+$commentRates = array(
+	'restaurant' => array(
+		'food' => Language::__('Food'),
+		'servicce' => Language::__('Service'),
+		'ambience' => Language::__('Ambience'),
+	),
+);
 
 global $currentUrl;
 $currentUrl = site_url() . $_SERVER['REQUEST_URI'];

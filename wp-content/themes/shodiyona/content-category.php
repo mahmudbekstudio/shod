@@ -56,14 +56,14 @@
 						</fieldset>
 						<div class="category-filter-block">
 							<div class="category-filter-item">
-								<a href="#" class="btn btn-primary category-filter-update">Update</a>
+								<a href="#" class="btn btn-primary category-filter-update"><?php Language::_e('Update') ?></a>
 							</div>
 						</div>
 					</form>
 
 
 
-					<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+					<?php /*<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h4 class="panel-title">
@@ -195,7 +195,7 @@
 
 					<div class="shipping text-center"><!--shipping-->
 						<img src="images/home/shipping.jpg" alt="" />
-					</div><!--/shipping-->
+					</div><!--/shipping-->*/ ?>
 
 				</div>
 			</div>
@@ -297,7 +297,7 @@ if($the_query->have_posts()) :
 									<?php endif; ?>
 									</div>
 									<h2><?php the_title(); ?></h2>
-									<p><?php echo get_field('address'); ?></p>
+									<p class="content-category-address"><?php echo get_field('address'); ?></p>
 									<a href="<?php the_permalink(); ?>" class="btn btn-default read-more"><i class="fa fa-arrow-circle-right"></i><?php Language::_e('Read more') ?></a>
 								</div>
 								<?php

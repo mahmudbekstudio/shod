@@ -77,21 +77,59 @@ $(document).ready(function(){
 		}
 	});
 
-	$(document).on('click', '.open-google-popup', function() {
-		var link = $(this).attr('href');
-		$.fancybox({
-			'width'             : '75%',
-			'maxHeight'            : '75%',
-			'autoScale'         : false,
-			'transitionIn'      : 'none',
-			'transitionOut'     : 'none',
-			'type'              : 'iframe',
-			href: link,
-			iframe     : {
-				preload : false // this will prevent to place map off center
-			}
+	$(document)
+		.on('click', '.open-google-popup', function() {
+			var link = $(this).attr('href');
+			$.fancybox({
+				'width'             : '75%',
+				'maxHeight'            : '75%',
+				'autoScale'         : false,
+				'transitionIn'      : 'none',
+				'transitionOut'     : 'none',
+				'type'              : 'iframe',
+				href: link,
+				iframe     : {
+					preload : false // this will prevent to place map off center
+				}
+			});
+			return false;
+		})
+		.on('click', '.rating .fa', function() {
+			var star = $(this);
+			var list = star.closest('.rating').find('.fa');
+			list.removeClass('active');
+			var start = false;
+			var starValue = 0;
+			list.each(function() {
+				var item = $(this);
+
+				if(start || item[0] == star[0]) {
+					item.addClass('active');
+					start = true;
+					starValue++;
+				}
+			});
+
+			star.siblings('.rating-value').val(starValue);
+		})
+		.on('submit', '.send-form-ajax', function() {
+			$(this).ajaxForm({
+				beforeSubmit: function(formData, jqForm, options) {
+					//
+				},
+				clearForm: true,
+				data: {ajaxform: 1},
+				dataType: 'json',
+				error: function() {
+					alert('Error.');
+				},
+				success: function(responseText, statusText, xhr, $form) {
+					//
+				},
+				target: null
+				//uploadProgress
+			});
+			return false;
 		});
-		return false;
-	});
 
 });

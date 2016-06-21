@@ -235,7 +235,7 @@ get_header(); ?>
 							$contact_person = get_field('contact_person');
 							if(!empty($contact_person)) {
 								?>
-								<p> <strong><?php Language::_e('Contact Person') ?>:</strong>
+								<p> <strong><?php Language::_e('Contact person') ?>:</strong>
 									<?php
 									echo $contact_person;
 									?>
@@ -252,7 +252,7 @@ get_header(); ?>
 								$map = get_field('map');
 								?>
 								<p> <strong><?php Language::_e('Map') ?>:</strong>
-									<a class="open-google-popup" href="?map=<?php echo $map['address'] . '&lat=' . $map['lat'] . '&lng=' . $map['lng'] ?>"><img src="<?php echo $map_url; ?>" /></a>
+									<a class="open-google-popup" href="?map=<?php echo $map['address'] . '&lat=' . $map['lat'] . '&lng=' . $map['lng'] ?>"><img src="<?php echo $map_url; ?>" class="thumb-map" /></a>
 								</p>
 								<?php
 							}
@@ -291,11 +291,11 @@ get_header(); ?>
 
 				<div class="category-tab shop-details-tab"><!--category-tab-->
 					<div class="col-sm-12">
-						<ul class="nav nav-tabs">
+						<ul class="nav nav-tabs category-tab-list">
 							<li class="active"><a href="#details" data-toggle="tab"><?php Language::_e('Details') ?></a></li>
 							<li><a href="#menu" data-toggle="tab"><?php Language::_e('Menu') ?></a></li>
-							<li><a href="#reviews" data-toggle="tab"><?php Language::_e('Reviews') ?></a></li>
-							<li><a href="#dateevent" data-toggle="tab"><?php Language::_e('Date event') ?></a></li>
+							<?php /*<li><a href="#reviews" data-toggle="tab"><?php Language::_e('Reviews') ?></a></li>
+							<li><a href="#dateevent" data-toggle="tab"><?php Language::_e('Date event') ?></a></li>*/ ?>
 						</ul>
 					</div>
 					<div class="tab-content">
@@ -312,7 +312,7 @@ get_header(); ?>
 								?>
 								<div class="menu-list-tab"><!--category-tab-->
 									<div class="col-sm-12">
-										<ul class="nav nav-tabs">
+										<ul class="nav nav-tabs category-tab-list">
 											<?php
 											foreach($foodMenu as $key => $val) :
 											?>
@@ -353,9 +353,46 @@ get_header(); ?>
 							</div>
 						</div>
 
-						<div class="tab-pane fade" id="reviews" >
+						<?php /*<div class="tab-pane fade" id="reviews" >
 							<div class="col-sm-12 tab-content">
-								111
+								<div class="comment-list">
+									<div class="comment-list-item">
+										<ul>
+											<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+											<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+											<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+										</ul>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									</div>
+								</div>
+								<div class="comment-form">
+									<p><b>Write Your Review</b></p>
+
+									<form action="<?php echo home_url('/'); ?>?addCommentToPost=<?php the_ID() ?>" method="post" class="send-form-ajax">
+										<span>
+											<input type="text" name="comment[name]" placeholder="Your Name">
+											<input type="email" name="email" placeholder="Email Address">
+										</span>
+										<textarea name="" placeholder="Comment"></textarea>
+										<div class="rating-list row">
+											<?php
+											global $commentRates;
+											foreach($commentRates[$post->post_type] as $key => $val) :
+											?>
+											<div class="rating-list-item col-md-4">
+												<b><?php echo $val; ?>: </b>
+												<div class="rating">
+													<input type="hidden" name="comment[rating][<?php echo $key ?>]" value="0" class="rating-value">
+													<span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span>
+												</div>
+											</div>
+											<?php endforeach; ?>
+										</div>
+										<button class="btn btn-default pull-right" type="submit">
+											Submit
+										</button>
+									</form>
+								</div>
 							</div>
 						</div>
 
@@ -363,7 +400,7 @@ get_header(); ?>
 							<div class="col-sm-12 tab-content">
 								111
 							</div>
-						</div>
+						</div>*/ ?>
 
 					</div>
 				</div><!--/category-tab-->

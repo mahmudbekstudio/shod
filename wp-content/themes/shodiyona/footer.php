@@ -1,6 +1,6 @@
 <?php if(!(is_front_page() || is_home())) : ?>
 	<footer id="footer"><!--Footer-->
-		<div class="footer-top">
+		<?php /*<div class="footer-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
@@ -78,13 +78,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>*/ ?>
 
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-Shopper. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">&copy; 2016 Shodiyona.uz. <?php Language::_e('All rights reserved') ?>.</p>
+					<?php /*<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>*/ ?>
 				</div>
 			</div>
 		</div>
