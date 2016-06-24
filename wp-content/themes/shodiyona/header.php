@@ -4,6 +4,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="Keywords" content="<?php bloginfo('name') ?>" />
 	<meta name="Description" content="<?php bloginfo('description') ?>" />
+	<meta property="og:title" content="<?php bloginfo('name') ?>" />
+	<meta property="og:description" content="<?php bloginfo('description') ?>" />
 	<title><?php
 		global $page, $paged;
 		wp_title( '|', true, 'right' );
@@ -54,6 +56,16 @@ if(is_front_page() || is_home()) {
 //print_r(qtrans_getSortedLanguages());exit;
 ?>
 <body class="<?php echo join(' ', $bodyClass) ?>">
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-79840818-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
 <header id="header"><!--header-->
 	<div class="header_top"><!--header_top-->
 		<div class="container">
@@ -216,9 +228,9 @@ if(is_front_page() || is_home()) {
 		</div>
 	</div><!--/header-bottom-->
 </header><!--/header-->
-
+<?php /*
 <section id="advertisement">
 	<div class="container">
 		<img src="images/shop/advertisement.jpg" alt="" />
 	</div>
-</section>
+</section>*/ ?>
