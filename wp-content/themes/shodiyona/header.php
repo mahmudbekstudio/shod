@@ -141,7 +141,7 @@ if(is_front_page() || is_home()) {
 								?>
 								<span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu dropdown-menu-sm currency-list">
+							<?php /*<ul class="dropdown-menu dropdown-menu-sm currency-list">
 								<?php
 								for($i = 0; $i < $currencyListCount; $i++) {
 									if($currencyList[$i]['code'] != $currencyCode) {
@@ -149,7 +149,7 @@ if(is_front_page() || is_home()) {
 									}
 								}
 								?>
-							</ul>
+							</ul>*/ ?>
 						</div>
 					</div>
 				</div>
