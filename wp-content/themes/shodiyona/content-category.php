@@ -304,7 +304,7 @@ if($the_query->have_posts()) :
 								$map = get_field('google_map');
 								$map_url = '';
 								if(!empty($map)) {
-									$map_url = "background-image: url('" . $map['url'] . "');";
+									$map_url = "background-image: url('" . $map['sizes']['category_map_thumbnail'] . "');";
 								}
 								?>
 								<div class="product-overlay" style="<?php echo $map_url ?>">

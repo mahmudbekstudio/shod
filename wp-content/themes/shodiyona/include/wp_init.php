@@ -134,6 +134,7 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'category_thumb', 268, 249, true );
 add_image_size( 'category_thumb_hover', 482, 448, true );
 add_image_size( 'category_thumb_main', 355, 330, true );
+add_image_size( 'category_map_thumbnail', 256, 256, true );
 //add_image_size( 'medium_thumb', 220, 200, false );
 
 function create_post_type() {

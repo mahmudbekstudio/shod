@@ -235,7 +235,7 @@ get_header(); ?>
 							$map = get_field('google_map');
 							$map_url = '';
 							if(!empty($map)) {
-								$map_url = $map['url'];
+								$map_url = $map['sizes']['category_map_thumbnail'];
 							}
 							if(!empty($map_url)) {
 								$map = get_field('map');
