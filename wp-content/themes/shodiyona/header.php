@@ -62,7 +62,7 @@ if(is_front_page() || is_home()) {
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	ga('create', 'UA-79840818-1', 'auto');
+	ga('create', 'UA-80516525-1', 'auto');
 	ga('send', 'pageview');
 
 </script>
@@ -73,8 +73,8 @@ if(is_front_page() || is_home()) {
 				<div class="col-sm-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="tel:<?php the_field('phone', 'option') ?>"><i class="fa fa-phone"></i> <?php the_field('phone', 'option') ?></a></li>
-							<li><a href="mailto: <?php $email = get_field('e-mail', 'option'); echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
+							<li><a href="tel:<?php echo '+99897 7070384';/*the_field('phone', 'option')*/ ?>"><i class="fa fa-phone"></i> <?php echo '+99897 7070384';/*the_field('phone', 'option')*/ ?></a></li>
+							<li><a href="mailto: <?php $email = 'info@shodiyona.uz';/*get_field('e-mail', 'option')*/; echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
 						</ul>
 					</div>
 					<?php if(!(is_front_page() || is_home())) : ?>
@@ -85,7 +85,27 @@ if(is_front_page() || is_home()) {
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
 							<?php
-							$topLinks = get_field('top_links', 'option');
+							//$topLinks = get_field('top_links', 'option');
+							$topLinks = array(
+								array(
+									'title' => 'Facebook',
+									'link' => 'https://www.facebook.com/groups/shodiyona.uz',
+									'icon' => 'facebook',
+									'image' => ''
+								),
+								array(
+									'title' => 'Instagram',
+									'link' => 'https://www.instagram.com/shodiyona.uz/',
+									'icon' => 'instagram',
+									'image' => ''
+								),
+								array(
+									'title' => 'Youtube',
+									'link' => 'https://www.youtube.com/channel/UCJ07bc1idlLFsXbYpKKJP0w',
+									'icon' => 'youtube',
+									'image' => ''
+								)
+							);
 							$topLinksLength = count($topLinks);
 							for($i = 0; $i < $topLinksLength; $i++) {
 								echo '<li><a href="' . $topLinks[$i]['link'] . '" title="' . $topLinks[$i]['title'] . '" target="_blank"><i class="fa fa-' . $topLinks[$i]['icon'] . '"></i></a></li>';
@@ -128,7 +148,7 @@ if(is_front_page() || is_home()) {
 							</ul>
 						</div>
 
-						<div class="btn-group">
+						<?php /*<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 								<?php
 								global $currencyCode, $currencyList;
@@ -141,7 +161,7 @@ if(is_front_page() || is_home()) {
 								?>
 								<span class="caret"></span>
 							</button>
-							<?php /*<ul class="dropdown-menu dropdown-menu-sm currency-list">
+							<ul class="dropdown-menu dropdown-menu-sm currency-list">
 								<?php
 								for($i = 0; $i < $currencyListCount; $i++) {
 									if($currencyList[$i]['code'] != $currencyCode) {
@@ -149,8 +169,8 @@ if(is_front_page() || is_home()) {
 									}
 								}
 								?>
-							</ul>*/ ?>
-						</div>
+							</ul>
+						</div>*/ ?>
 					</div>
 				</div>
 				<?php /*<div class="col-sm-8">

@@ -1169,12 +1169,13 @@ h2.title {
 
 .view-product {
   position: relative;
+  text-align: center;
 }
 
 .view-product img {
   border: 1px solid #F7F7F0;
-  height: 330px;
   width: 100%;
+  max-width: 355px;
 }
 
 .view-product h3 {
@@ -2787,6 +2788,8 @@ fieldset.category-filter-block legend {
 }
 
 .thumb-map {
+  width: 100%;
+  max-width: 256px;
   margin: 10px;
   border: 2px solid #6d288c;
   vertical-align: top;

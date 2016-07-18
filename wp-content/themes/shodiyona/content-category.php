@@ -39,7 +39,7 @@
 							?>
 							<div class="category-filter-item">
 								<div class="category-filter-item-label"><?php Language::_e('Choose a city') ?></div>
-								<select style="opacity: 0" data-placeholder="<?php Language::_e('Choose a city') ?>" multiple class="select-country-city chosen-select" name="filter[select_country][city][]">
+								<select size="1" data-placeholder="<?php Language::_e('Choose a city') ?>" multiple class="select-country-city chosen-select" name="filter[select_country][city][]">
 									<?php foreach($cityArr as $val) : ?>
 										<option value="<?php echo $val['name'] ?>"><?php echo $val['title']; ?></option>
 									<?php endforeach; ?>
@@ -47,7 +47,7 @@
 							</div>
 							<div class="category-filter-item">
 								<div class="category-filter-item-label"><?php Language::_e('Choose a district') ?></div>
-								<select style="opacity: 0" data-placeholder="<?php Language::_e('Choose a district') ?>" multiple class="select-country-district chosen-select" name="filter[select_country][district][]">
+								<select size="1" data-placeholder="<?php Language::_e('Choose a district') ?>" multiple class="select-country-district chosen-select" name="filter[select_country][district][]">
 									<?php foreach($districtArr as $val) : ?>
 										<option data-parent="<?php echo $val['parent'] ?>" value="<?php echo $val['name'] ?>"><?php echo $val['title']; ?></option>
 									<?php endforeach; ?>

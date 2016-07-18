@@ -1,8 +1,10 @@
 $(document).ready(function() {
 	$('.slider').slider();
-	$(".chosen-select").chosen({
-		'display_disabled_options': false
-	});
+	if(!$.browser.mobile) {
+		$(".chosen-select").chosen({
+			'display_disabled_options': false
+		});
+	}
 
 	$('.select-country-city').on('change', function() {
 		var val = $(this).val();

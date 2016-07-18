@@ -84,8 +84,8 @@ get_header(); ?>
 								<?php
 								if(isset($region->district) && $region->district != '') {
 									echo ', ';
+									echo Language::__($region->district) . ' ';
 									Language::_e('District');
-									echo ' ' . Language::__($region->district);
 								}
 
 								if($address != '') {
@@ -232,17 +232,6 @@ get_header(); ?>
 								<?php
 							}
 
-							$contact_person = get_field('contact_person');
-							if(!empty($contact_person)) {
-								?>
-								<p> <strong><?php Language::_e('Contact person') ?>:</strong>
-									<?php
-									echo $contact_person;
-									?>
-								</p>
-								<?php
-							}
-
 							$map = get_field('google_map');
 							$map_url = '';
 							if(!empty($map)) {
@@ -309,6 +298,11 @@ get_header(); ?>
 							<div class="col-sm-12 tab-content">
 								<?php
 								$foodMenu = get_field('food_menu');
+								$treeCount = 3;
+								if(count($foodMenu) == 1 && $foodMenu[0]['menu_type'] == '') {
+									$foodMenu = $foodMenu[0]['menu'];
+									$treeCount = 2;
+								}
 								?>
 								<div class="menu-list-tab"><!--category-tab-->
 									<div class="col-sm-12">
@@ -326,27 +320,76 @@ get_header(); ?>
 										?>
 										<div class="tab-pane fade<?php echo $key == 0 ? ' active in' : ''; ?>" id="menulist<?php echo $key ?>" >
 											<div class="col-sm-12 tab-content">
-												<ul>
-												<?php foreach($val['menu'] as $menuItem) : ?>
-													<li>
+												<?php
+												if($treeCount == 3) {
+													?>
+												<div class="menu-list-tab">
+													<div class="col-sm-12">
+														<ul class="nav nav-tabs category-tab-list">
+															<?php
+															foreach($val['menu'] as $subkey => $subval) :
+																?>
+																<li class="<?php echo $subkey == 0 ? 'active' : ''; ?>"><a href="#submenulist<?php echo '_' . $key . '_' . $subkey ?>" data-toggle="tab"><?php echo $subval['menu_type'] ?></a></li>
+															<?php endforeach; ?>
+														</ul>
+													</div>
+													<div class="tab-content">
+													<?php
+													foreach($val['menu'] as $subkey => $subval) :
+														?>
+														<div class="tab-pane fade<?php echo $subkey == 0 ? ' active in' : ''; ?>" id="submenulist<?php echo '_' . $key . '_' .$subkey ?>" >
+															<div class="col-sm-12 tab-content">
+																<ul>
+																	<?php foreach($subval['menu'] as $menuItem) : ?>
+																		<li>
 
-														<div class="menu-item-price pull-right"><?php if(!empty($menuItem['price'])) {
-																echo exchangeCurrency($menuItem['price']);
-															} else {
-																echo '---';
-															}
-															?></div>
+																			<div class="menu-item-price pull-right"><?php if(!empty($menuItem['price'])) {
+																					echo exchangeCurrency($menuItem['price']);
+																				} else {
+																					echo '---';
+																				}
+																				?></div>
 
-														<div class="menu-item-detail">
-															<div class="menu-item-detail-name"><?php echo $menuItem['name']; ?></div>
-															<div class="menu-item-detail-description"><?php echo $menuItem['description']; ?></div>
+																			<div class="menu-item-detail">
+																				<div class="menu-item-detail-name"><?php echo $menuItem['name']; ?></div>
+																				<div class="menu-item-detail-description"><?php echo $menuItem['description']; ?></div>
+																			</div>
+																		</li>
+																	<?php endforeach; ?>
+																</ul>
+															</div>
 														</div>
-													</li>
-												<?php endforeach; ?>
-												</ul>
+													<?php endforeach; ?>
+													</div>
+												</div>
+													<?php
+												} else {
+													?>
+													<ul>
+														<?php foreach($val['menu'] as $menuItem) : ?>
+															<li>
+
+																<div class="menu-item-price pull-right"><?php if(!empty($menuItem['price'])) {
+																		echo exchangeCurrency($menuItem['price']);
+																	} else {
+																		echo '---';
+																	}
+																	?></div>
+
+																<div class="menu-item-detail">
+																	<div class="menu-item-detail-name"><?php echo $menuItem['name']; ?></div>
+																	<div class="menu-item-detail-description"><?php echo $menuItem['description']; ?></div>
+																</div>
+															</li>
+														<?php endforeach; ?>
+													</ul>
+												<?php
+												}
+												?>
 											</div>
 										</div>
-										<?php endforeach; ?>
+										<?php endforeach;
+										?>
 
 									</div>
 								</div><!--/category-tab-->

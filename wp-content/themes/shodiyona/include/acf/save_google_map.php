@@ -42,7 +42,7 @@ class save_google_map extends acf_field_text {
 					var mapLng = $.trim(mapContainer.find('.input-lng').val());
 
 					var mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + mapAddress;
-					mapUrl += '&zoom=14&size=256x226&maptype=roadmap&markers=color:red|label:R|' + mapLat + ',' + mapLng;// + '&key=AIzaSyCtjMo5SZD5YHfCgwElAiwd40-cBgFCNOI'
+					mapUrl += '&zoom=14&size=256x226&maptype=roadmap&markers=color:red|label:R|' + mapLat + ',' + mapLng + '&key=AIzaSyDyXHSkZAozGR8C4dYxgnZ9jp32fz-IKK4';// + '&key=AIzaSyCtjMo5SZD5YHfCgwElAiwd40-cBgFCNOI'
 					saveGoogleMapInput.val(mapUrl);
 					$('.open-google-map-link').removeClass('hidden').attr('href', mapUrl);
 				});
