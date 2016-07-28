@@ -40,6 +40,7 @@ return array(
 	'National' => 'Национальный',
 	'Uygur' => 'Уйгурский',
 	'Other' => 'Другие',
+	'Video' => 'Видео',
 //shaharlar
 	'tashkent region' => 'Ташкентская область',
 				'ahangaran' => 'Ахангаран',

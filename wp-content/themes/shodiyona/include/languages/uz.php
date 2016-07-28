@@ -40,6 +40,7 @@ return array(
 	'National' => 'Milliy',
 	'Uygur' => 'Uyg`ur',
 	'Other' => 'Boshqalar',
+	'Video' => 'Video',
 	'tashkent region' => 'Toshkent viloyati',
 			'ahangaran' =>  'Ohangaron',
 			'akkurgan' =>  "Oqqo'rg'on",

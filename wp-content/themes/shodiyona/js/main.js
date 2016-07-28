@@ -132,4 +132,12 @@ $(document).ready(function(){
 			return false;
 		});
 
+	$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});
+
 });

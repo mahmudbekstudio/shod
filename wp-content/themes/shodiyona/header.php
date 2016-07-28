@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+global $q_config;
+?><!DOCTYPE html>
+<html lang="<?php echo $q_config['language']; ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="Keywords" content="<?php bloginfo('name') ?>" />
@@ -47,7 +49,6 @@
 	<link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_directory' ); ?>/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <?php
-global $q_config;
 $bodyClass = array();
 if(is_front_page() || is_home()) {
 	$bodyClass[] = 'index-page';
@@ -73,8 +74,8 @@ if(is_front_page() || is_home()) {
 				<div class="col-sm-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="tel:<?php echo '+99897 7070384';/*the_field('phone', 'option')*/ ?>"><i class="fa fa-phone"></i> <?php echo '+99897 7070384';/*the_field('phone', 'option')*/ ?></a></li>
-							<li><a href="mailto: <?php $email = 'info@shodiyona.uz';/*get_field('e-mail', 'option')*/; echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
+							<li><a href="tel:<?php $phone = get_field('phone', 'option');echo $phone; ?>"><i class="fa fa-phone"></i> <?php echo $phone ?></a></li>
+							<li><a href="mailto: <?php $email = get_field('e-mail', 'option'); echo $email; ?>"><i class="fa fa-envelope"></i> <?php echo $email; ?></a></li>
 						</ul>
 					</div>
 					<?php if(!(is_front_page() || is_home())) : ?>
@@ -85,27 +86,7 @@ if(is_front_page() || is_home()) {
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
 							<?php
-							//$topLinks = get_field('top_links', 'option');
-							$topLinks = array(
-								array(
-									'title' => 'Facebook',
-									'link' => 'https://www.facebook.com/groups/shodiyona.uz',
-									'icon' => 'facebook',
-									'image' => ''
-								),
-								array(
-									'title' => 'Instagram',
-									'link' => 'https://www.instagram.com/shodiyona.uz/',
-									'icon' => 'instagram',
-									'image' => ''
-								),
-								array(
-									'title' => 'Youtube',
-									'link' => 'https://www.youtube.com/channel/UCJ07bc1idlLFsXbYpKKJP0w',
-									'icon' => 'youtube',
-									'image' => ''
-								)
-							);
+							$topLinks = get_field('top_links', 'option');
 							$topLinksLength = count($topLinks);
 							for($i = 0; $i < $topLinksLength; $i++) {
 								echo '<li><a href="' . $topLinks[$i]['link'] . '" title="' . $topLinks[$i]['title'] . '" target="_blank"><i class="fa fa-' . $topLinks[$i]['icon'] . '"></i></a></li>';
@@ -227,15 +208,15 @@ if(is_front_page() || is_home()) {
 								<? /*<li><a href="index.html" class="active">Главная</a></li>
 								<li class="has-dropdown"><a href="#">Категория<i class="fa fa-angle-down"></i></a>
 									<ul class="dropdown sub-menu">
-										<li><a href="restaurant.html">Рестораны</a></li>
-										<li><a href="organization.html">Организация Свадьбы</a></li>
+										<li><a href="restaurant.html">Рестораны</a></li>+
+										<li><a href="organization.html">Организация Свадьбы</a></li>+
 										<li><a href="rest.html">Отдых и Развлечения</a></li>
-										<li><a href="beuty.html">Красота и Здоровье</a></li>
-										<li><a href="shop.html">Магазины торговля</a></li>
-										<li><a href="auto.html">Авто</a></li>
+										<li><a href="beuty.html">Красота и Здоровье</a></li>+
+										<li><a href="shop.html">Магазины торговля</a></li>+
+										<li><a href="auto.html">Авто</a></li>+
 										<li><a href="rent.html">Аренда</a></li>
-										<li><a href="photo.html">Фото и Видео</a></li>
-										<li><a href="training.html">Учебные центры</a></li>
+										<li><a href="photo.html">Фото и Видео</a></li>+
+										<li><a href="training.html">Учебные центры</a></li>+
 									</ul>
 								</li>
 								<li><a href="#">Новости</a></li>

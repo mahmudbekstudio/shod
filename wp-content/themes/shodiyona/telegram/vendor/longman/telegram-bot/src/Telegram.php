@@ -366,7 +366,8 @@ class Telegram
             $results = '';
             $n_update = count($ServerResponse->getResult());
             for ($a = 0; $a < $n_update; $a++) {
-                $result = $this->processUpdate($ServerResponse->getResult()[$a]);
+                $r = $ServerResponse->getResult();
+                $result = $this->processUpdate($r[$a]);
             }
             print(date('Y-m-d H:i:s', time()).' - Processed '.$a." updates\n");
         } else {

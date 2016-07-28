@@ -283,6 +283,7 @@ get_header(); ?>
 						<ul class="nav nav-tabs category-tab-list">
 							<li class="active"><a href="#details" data-toggle="tab"><?php Language::_e('Details') ?></a></li>
 							<li><a href="#menu" data-toggle="tab"><?php Language::_e('Menu') ?></a></li>
+							<li><a href="#video" data-toggle="tab"><?php Language::_e('Video') ?></a></li>
 							<?php /*<li><a href="#reviews" data-toggle="tab"><?php Language::_e('Reviews') ?></a></li>
 							<li><a href="#dateevent" data-toggle="tab"><?php Language::_e('Date event') ?></a></li>*/ ?>
 						</ul>
@@ -393,6 +394,27 @@ get_header(); ?>
 
 									</div>
 								</div><!--/category-tab-->
+							</div>
+						</div>
+
+						<div class="tab-pane fade" id="video" >
+							<div class="col-sm-12 tab-content">
+								<ul class="video-list">
+								<?php
+								$videoList = get_field('video_list');
+								//print_r($videoList);exit;
+								$videoListCount = count($videoList);
+								for($i = 0; $i < $videoListCount; $i++) {
+									echo '<li><strong>' . $videoList[$i]['video_name'] . '</strong><br />';
+									if($videoList[$i]['video_type'] == 'youtube') {
+										echo '<a class="video-link fancybox-media fancybox.iframe" href="http://www.youtube.com/embed/' . $videoList[$i]['video_code'] . '?autoplay=1" title="' . $videoList[$i]['video_name'] . '"><span class="play-button"></span><img src="http://img.youtube.com/vi/' . $videoList[$i]['video_code'] . '/mqdefault.jpg"></a>';
+									} elseif($videoList[$i]['video_type'] == 'mover') {
+										echo '<a href="#" title="' . $videoList[$i]['name'] . '">' . $videoList[$i]['video_code'] . '</a>';
+									}
+									echo '</li>';
+								}
+								?>
+								</ul>
 							</div>
 						</div>
 

@@ -20,7 +20,7 @@ $(document).ready(function() {
 			swiperParams.slidesPerView = 1;
 		}
 
-		if(swiper) {
+		if(swiper && swiper.destroy) {
 			swiper.destroy();
 		}
 
